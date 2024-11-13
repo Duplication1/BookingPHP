@@ -1,49 +1,6 @@
 <?php
-
-// Include the database connection
-include('db.php');
-session_start();
-
-// Define error variable
-$error = "";
-
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize the user input
-    $username = mysqli_real_escape_string($conn, trim($_POST['username']));
-    $password = mysqli_real_escape_string($conn, trim($_POST['password']));
-
-    // Prepare query to fetch the user from the database using prepared statements
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Check if user exists
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Fetch the user record
-        $user = mysqli_fetch_assoc($result);
-
-        // Debugging: Print user data (Optional for troubleshooting)
-        // print_r($user); exit();
-
-        // Verify the password (no hashing, plain text comparison)
-        if ($password === $user['password']) {
-            // Start a session and save user information
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['user_id'] = $user['id'];
-
-            // Redirect the user to the dashboard or a different page
-            header('Location: dashboard.php');
-            exit();
-        } else {
-            $error = "Invalid username or password.";
-        }
-    } else {
-        $error = "Invalid username or password.";
-    }
-}
-
+include('../model/db.php');
+include('../controller/loginController.php');
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="login-body">
-        <div class="login-logo-container"><img src="images/logo.png" />
+        <div class="login-logo-container"><img src="../images/logo.png" />
             <p>DENTAL CLINIC</p>
         </div>
         <form class="login-form" method="POST" action="">
@@ -81,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password" class="login-label-password">Password</label>
             <div class="password-container">
                 <input type="password" id="password" name="password" class="login-input-password" placeholder="Password" required />
-                <img id="togglePassword" class="eye-icon" src="images/closed_eye.png" alt="Toggle Password Visibility">
+                <img id="togglePassword" class="eye-icon" src="../images/closed_eye.png" alt="Toggle Password Visibility">
             </div>
             <button class="login-button" type="submit">Login</button>
             <p>No Account yet? <a href="#">Sign Up</a></p>
@@ -95,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         togglePassword.addEventListener('click', function() {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            this.src = type === 'password' ? 'images/closed_eye.png' : 'images/remove_red_eye.png';
+            this.src = type === 'password' ? '../images/closed_eye.png' : '../images/remove_red_eye.png';
         });
     </script>
 

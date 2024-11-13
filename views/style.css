@@ -45,7 +45,7 @@
 .login-body {
   width: 100%;
   height: 100vh;
-  background: url(images/login-background.png);
+  background: url(../images/login-background.png);
   padding: 50px;
 }
 
