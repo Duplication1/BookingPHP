@@ -2,7 +2,7 @@
     <div class="footer-container">
         <!-- Logo Section -->
         <div class="footer-logo">
-            <img src="images/logo.png" alt="Dental Clinic Logo" />
+            <img src="../images/logo.png" alt="Dental Clinic Logo" />
         </div>
 
         <!-- Contact Information -->
