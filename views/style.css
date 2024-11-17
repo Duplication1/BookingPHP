@@ -206,48 +206,56 @@
 /*header*/
 .main-header{
   width: 100%;
-  height: 250px;
+  height: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
-  background-color: transparent;
+  background-color: rgba(0,0,0, 0.5);
+
+}
+/* Dropdown fade-in and slide-down animation */
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.header-logo-container{
-  margin-left: 10%;
+/* Show dropdown menu */
+.dropdown.show .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
-.header-logo-container span{
-  color: var(--white)
+.color-white{
+  color: var(--white) !important;
 }
-.main-nav-bar{
-  width: 100%;
-  background-color: transparent;
-}
-
 .navbar-nav{
   margin-left: auto;
-  background-color: var(--black);
-  display: flex;
-  align-items: center;
-  height: 75px;
-  min-width: 50%;
-  padding: 10px;
+  color: var(--white);
+  gap: 20px;
 }
-@media(max-width: 983px){
-  .navbar-nav{
-    height: auto;
-  }
-  .container-fluid{
-    margin-top: 14%;
-  }
+.navbar-brand{
+  margin-left: 5%;
 }
-.main-ul-nav li a{
-  color: var(--white)
+.white-vertical-lines{
+  width: 1px;
+  height: 35px;
+  background-color: var(--white);
 }
-.main-nav-toggler{
-  background-color: var(--white) !important;
+.right-side-nav{
+  margin-right: 5%;
+}
+.navbar .dropdown-toggle::after{
+  color: white;
+}
+.nav-link{
+  letter-spacing: 3px;
+}
+.book-an-appointment-btn{
+  border: var(--white) 2px solid !important;
+  border-radius: 20px !important;
 }
 /*dashboard*/
 .dashboard-body{
