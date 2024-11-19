@@ -21,7 +21,7 @@
           </li>
         </ul>
         <div class="d-flex gap-2 align-items-center right-side-nav">
-        <button class="btn color-white book-an-appointment-btn"><img src="../images/book-an-appointment-icon.png"/>Book An Appointment</button>
+        <button class="btn color-white book-an-appointment-btn button button-pulse"><img src="../images/book-an-appointment-icon.png"/>Book An Appointment</button>
         <div class="white-vertical-lines"></div>
         <button class="btn"><img src="../images/map-link-icon.png"/></button> 
         <div class="white-vertical-lines"></div>
