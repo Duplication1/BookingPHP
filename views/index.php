@@ -36,20 +36,29 @@
             <div class="container services-container">
                 <div class="row services-row">
                     <div class="col services">
-                        <img src="../images/eye-exams.png"/>
+                        <div><img src="../images/eye-exams.png"/></div>
+                        <h4 class="services-h4">Comprehensive Eye Exams </h4>
+                        <p class="services-paragraph">Accurate assessments for optimal vision health.</p>
                     </div>
                     <div class="col services">
-                    <img src="../images/vision-solutions.png"/>
+                        <div><img src="../images/vision-solutions.png"/></div>
+                        <h4 class="services-h4">Personalized Vision Solutions</h4>
+                        <p class="services-paragraph">Tailored treatments to meet your unique needs. Expert advice on eye care and hygiene. </p>
                     </div>
                     <div class="col services">
-                    <img src="../images/stylish-eyewear.png"/>
+                        <div><img src="../images/stylish-eyewear.png"/></div>
+                        <h4 class="services-h4">Stylish Eyewear Collection</h4>
+                        <p class="services-paragraph">A wide range of fashiovhnable frames to suit your style.</p>
                     </div>
                     <div class="col services">
-                    <img src="../images/patient-icon.png"/>
+                        <div><img src="../images/patient-icon.png"/></div>
+                        <h4 class="services-h4">Patient-Centered Care</h4>
+                        <p class="services-paragraph">A friendly and knowledgeable team dedicated to your eye health.A comfortable and welcoming clinic environment.</p>
                     </div>
                 </div>
             </div>
         </section>
+        
         <section class="sections" id="secondSection">
 
         </section>

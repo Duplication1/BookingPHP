@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-container container">
         <!-- Logo Section -->
         <div class="footer-logo">
             <img src="../images/logo.png" alt="Dental Clinic Logo" />
@@ -7,8 +7,9 @@
 
         <!-- Contact Information -->
         <div class="footer-contact">
-            <p>Contact Us</p>
+            
             <ul>
+                <p>Contact Us</p>
                 <li>(+63) 9939851256</li>
                 <li>qcu@gmail.com</li>
                 <li>M2XM+XPV, Quirino Hwy, Novaliches, Quezon City, Metro Manila</li>
@@ -17,8 +18,9 @@
 
         <!-- Menu Links -->
         <div class="footer-menu">
-            <p>Menu</p>
+            
             <ul>
+                <p>Menu</p>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="pricing.php">Pricing</a></li>
@@ -28,8 +30,9 @@
 
         <!-- Legal Information Links -->
         <div class="footer-legal">
-            <p>Legal Information</p>
+            
             <ul>
+            <p>Legal Information</p>
                 <li><a href="privacy.php">Privacy Policy</a></li>
                 <li><a href="copyright.php">Copyright Policy</a></li>
                 <li><a href="terms.php">Terms of Service</a></li>
