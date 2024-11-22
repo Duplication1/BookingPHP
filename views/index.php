@@ -25,42 +25,13 @@
     <?php include 'header.php'; ?>
     <div class="dashboard-body">
         <section class="sections" id="firstSection">
-            <div class="hero-container container">
-                <h1 class="hero-h1 animate__fadeInLeft animate__animated">See The World Your Way.</h1>
-                <p class="hero-paragraph animate__fadeInLeft animate__animated">Experience crystal-clear vision with our precision eyewear. 
-                    From everyday glasses to specialized lenses, we tailor solutions to your unique needs. Visit us today 
-                    for a comprehensive eye exam and discover the difference.
-                </p>
-                <button class="hero-btn animate__fadeInLeft animate__animated">Learn more</button>
-            </div>
-            <div class="container services-container">
-                <div class="row services-row">
-                    <div class="col services">
-                        <div><img src="../images/eye-exams.png"/></div>
-                        <h4 class="services-h4">Comprehensive Eye Exams </h4>
-                        <p class="services-paragraph">Accurate assessments for optimal vision health.</p>
-                    </div>
-                    <div class="col services">
-                        <div><img src="../images/vision-solutions.png"/></div>
-                        <h4 class="services-h4">Personalized Vision Solutions</h4>
-                        <p class="services-paragraph">Tailored treatments to meet your unique needs. Expert advice on eye care and hygiene. </p>
-                    </div>
-                    <div class="col services">
-                        <div><img src="../images/stylish-eyewear.png"/></div>
-                        <h4 class="services-h4">Stylish Eyewear Collection</h4>
-                        <p class="services-paragraph">A wide range of fashiovhnable frames to suit your style.</p>
-                    </div>
-                    <div class="col services">
-                        <div><img src="../images/patient-icon.png"/></div>
-                        <h4 class="services-h4">Patient-Centered Care</h4>
-                        <p class="services-paragraph">A friendly and knowledgeable team dedicated to your eye health.A comfortable and welcoming clinic environment.</p>
-                    </div>
-                </div>
-            </div>
+        <?php include 'hero.php'; ?>
         </section>
-        
+        <?php include 'services.php'; ?>
         <section class="sections" id="secondSection">
-
+            <?php include 'visionAndMission.php';
+                  include 'landingFrames.php';
+            ?>
         </section>
         <section class="sections" id="thirdSection">
 

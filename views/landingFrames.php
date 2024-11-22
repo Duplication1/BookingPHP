@@ -1,0 +1,13 @@
+<div class="container landing-frames-container">
+    <div class="row landing-frames-row">
+        <div class="col landing-frames-img-container">
+            <img src="../images/frames.png" class="img-fluid" alt="Frames">
+        </div>
+        <div class="col landing-frames-right-side-container">
+            <h1 class="landing-frames-h1">Explore a wide variety of frames</h1>
+            <p class="landing-frames-paragraph">Explore a vast array of frames, from sleek and modern to classic and timeless.
+                Discover the perfect frame to elevate your artwork or cherished memories.</p>
+            <button class="btn landing-frames-btn">Learn More</button>
+        </div>
+    </div>
+</div>

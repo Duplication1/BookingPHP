@@ -1,47 +1,57 @@
 <?php 
-
 session_start();
+if(isset($_POST["login"])){
+    $email = $_POST["Email"];
+    $password = $_POST["password"];
+    $errors = array();
+    
+    // Validate email
+    if(empty($email) || empty($password)){
+        array_push($errors, "Both fields are required.");
+    }
 
-// Define error variable
-$error = "";
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        array_push($errors, "Invalid email format.");
+    }
 
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize the user input
-    $username = mysqli_real_escape_string($conn, trim($_POST['username']));
-    $password = mysqli_real_escape_string($conn, trim($_POST['password']));
-
-    // Prepare query to fetch the user from the database using prepared statements
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Check if user exists
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Fetch the user record
-        $user = mysqli_fetch_assoc($result);
-
-        // Debugging: Print user data (Optional for troubleshooting)
-        // print_r($user); exit();
-
-        // Verify the password (no hashing, plain text comparison)
-        if ($password === $user['password']) {
-            // Start a session and save user information
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['user_id'] = $user['id'];
-
-            // Redirect the user to the dashboard or a different page
-            header('Location: dashboard.php');
-            exit();
-        } else {
-            $error = "Invalid username or password.";
+    if(count($errors) > 0){
+        foreach($errors as $error){
+            echo "<div class='alert alert-danger'>$error</div>";
         }
     } else {
-        $error = "Invalid username or password.";
+        // Connect to the database
+        require_once "../model/db.php";
+
+        // Check if email exists
+        $sql = "SELECT * FROM user WHERE email = ?";
+        $stmt = mysqli_stmt_init($conn);
+
+        if(mysqli_stmt_prepare($stmt, $sql)){
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+
+            // Check if user exists
+            if($row = mysqli_fetch_assoc($result)){
+                // Verify password
+                if(password_verify($password, $row['password'])){
+                    // Start the session and redirect to a logged-in page
+                    session_start();
+                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['email'] = $row['email'];
+                    echo "<div class='alert alert-success'>Login successful! Redirecting...</div>";
+                    header("Location: dashboard.php");  // Redirect to the welcome page after successful login
+                    exit();
+                } else {
+                    echo "<div class='alert alert-danger'>Incorrect password.</div>";
+                }
+            } else {
+                echo "<div class='alert alert-danger'>No account found with that email.</div>";
+            }
+        } else {
+            die("Error preparing the query.");
+        }
     }
 }
-
-
 
 ?>

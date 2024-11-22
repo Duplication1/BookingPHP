@@ -11,13 +11,13 @@
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link color-white" href="index.php">HOME</a>
+            <a class="nav-link color-white" href="aboutUs.php">ABOUT US</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link color-white" href="#">ABOUT US</a>
+            <a class="nav-link color-white" href="testimonials.php">TESTIMONIALS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link color-white" href="#">CONTACT</a>
+            <a class="nav-link color-white" href="contactUs.php">CONTACT US</a>
           </li>
         </ul>
         <div class="d-flex gap-2 align-items-center right-side-nav">
@@ -39,7 +39,7 @@
             </button>
             <ul class="dropdown-menu color-white" aria-labelledby="dropdownMenuButton">
               <li><a class="dropdown-item" href="login.php">Login</a></li>
-              <li><a class="dropdown-item" href="signup.php">Sign Up</a></li>
+              <li><a class="dropdown-item" href="registration.php">Sign Up</a></li>
             </ul>
           </div>
         </div>
