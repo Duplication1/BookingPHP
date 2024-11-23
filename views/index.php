@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Wilerich Optical Clinic</title>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -29,12 +29,17 @@
         </section>
         <?php include 'services.php'; ?>
         <section class="sections" id="secondSection">
-            <?php include 'visionAndMission.php';
-                  include 'landingFrames.php';
+            <?php 
+              include 'visionAndMission.php';
+              include 'landingFrames.php';
+              include 'ourDoctors.php';
+              include 'howItWorks.php';
             ?>
         </section>
         <section class="sections" id="thirdSection">
-
+            <?php 
+              include 'landingTestimonials.html'; 
+            ?>
         </section>
         <?php include 'footer.php'; ?>
     </div>

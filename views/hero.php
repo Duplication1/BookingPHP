@@ -4,5 +4,5 @@
                     From everyday glasses to specialized lenses, we tailor solutions to your unique needs. Visit us today 
                     for a comprehensive eye exam and discover the difference.
                 </p>
-                <button class="hero-btn animate__fadeInLeft animate__animated">Learn more</button>
+                <a class="hero-btn animate__fadeInLeft animate__animated" href="#">Learn more</a>
 </div>

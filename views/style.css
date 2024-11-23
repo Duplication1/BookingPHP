@@ -45,10 +45,22 @@
 
 .footer {
   width: 100%;
-  height: 400px;
-  background-color: var(--black);
+  height: auto !important;
+  background-color: var(--grey-900);
   color: var(--white);
+
 }
+.footer-col{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 5% 0 5% !important;
+}
+.footer-row{
+  padding: 7% 0 7% 0!important;
+}
+
 .footer a {
   color: var(--white);
   text-decoration: none;
@@ -264,11 +276,11 @@
 
 .hero-h1{
   color: var(--white);
-  font-size: 60px;
+  font-size: 3.5rem;
 }
 .hero-paragraph{
   color: var(--white);
-  font-size: 25px;
+  font-size: 1.6rem;
   
 }
 .hero-btn{
@@ -278,7 +290,10 @@
   padding: 15px;
   border-radius: 25px;
   border: 0;
-  font-size: 23px;
+  font-size: 1.5rem;
+ text-align: center;
+ text-decoration: none;
+
 }
 
 /*services*/
@@ -286,7 +301,7 @@
   background-color: var(--white);
   box-shadow: 3px 3px 10px var(--black);
   border-radius: 10px;
-  top: -20%;
+  top: -200px;
   width: 100%;
   max-width: 90% !important;
   z-index: 10;
@@ -314,11 +329,10 @@
   height: 100px;
 }
 .services-h4{
-  font-size: 20px;
+  font-size: 1.4rem;
 }
 @media (max-width: 990px){
   .services-container{
-    top: 0;
     margin: 0;
     max-width: 100% !important;
   }
@@ -329,9 +343,12 @@
 }
 .services-toggle-btn{
   width: 100%;
-  color: var(--blue-500) !important;
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  padding: 20% 0 20% 0 !important;
 }
 #secondSection{
+  height: auto;
 }
 /*vision-mission*/
 .vision-mission-main-container{
@@ -344,13 +361,13 @@
 }
 .vision-mission-h4{
   color: var(--blue-500);
-  font-size: 22px;
+  font-size: 1.9rem;
 }
 .vision-mission-h1{
-  font-size: 32px;
+  font-size: 2rem;
 }
 .vision-mission-paragraph{
-  font-size: 24px;
+  font-size: 1.5rem;
   max-width: 80%;
 }
 .vision-mission-btn{
@@ -358,6 +375,11 @@
   height: 55px;
   background-color: var(--blue-500) !important;
   color: var(--blue-50) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  text-decoration: none;
 }
 @media (max-width: 990px){
   .vision-mission-img-container img{
@@ -388,11 +410,11 @@
 }
 .landing-frames-h1{
   color: var(--white);
-  font-size: 32px;
+  font-size: 1.9rem;
 }
 .landing-frames-paragraph{
   color: var(--white);
-  font-size: 20px;
+  font-size: 1.3rem;
   max-width: 90%;
   margin-top: 5%;
 }
@@ -402,6 +424,11 @@
   height: 55px;
   background-color: var(--blue-500) !important;
   color: var(--blue-50) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 @media (max-width: 990px){
@@ -411,7 +438,160 @@
   .landing-frames-right-side-container{
     text-align: center;
   }
-  #secondSection{
-    padding-top: 5%;
+}
+.our-doctors-container{
+  margin-top: 5%;
+}
+
+.how-it-works-container{
+  background-color: var(--blue-50);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100% !important;
+  margin-top: 5%;
+  padding: 5% 20% 5% 20%;
+  text-align: center;
+}
+.how-it-works-step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 250px;
+  width: 250px  !important;
+  height: 50%;
+}
+.how-it-works-h1{
+  font-size: 3rem;
+  font-weight: bold;
+}
+.how-it-works-numbers{
+  font-size: 8rem;
+  font-weight: bold;
+    background: linear-gradient(to bottom, var(--black), var(--blue-500)); /* Top to bottom gradient colors */
+    -webkit-background-clip: text; /* Makes the gradient apply only to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
+    text-align: center; 
+}
+.how-it-works-h4{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.how-it-works-paragraph{
+  font-size: 1.5rem;
+}
+.how-it-works-btn{
+  background-color: var(--blue-500) !important;
+  color: var(--blue-50) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px 30px 10px 30px !important;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.how-it-works-toggle-btn{
+  width: 100%;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  padding: 20% 0 20% 0 !important;
+}
+@media (max-width: 990px){
+  .how-it-works-h1{
+    display: none;
   }
 }
+#thirdSection{
+  height: auto;
+  padding: 8% 0 8% 0;
+}
+/*landing-testimonials*/
+.landing-testimonial-container{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 10% 5% 10% 5%;
+  gap: 20px !important;
+  margin: 2%;
+}
+.landing-testimonial-h4{
+  font-size: 1.2rem;
+  color: var(--grey-300);
+}
+.landing-testimonial-h1{
+  font-size: 2.7rem;
+  font-weight: bold;
+}
+
+.testimonial-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 2px 4px var(--black);
+  height: 300px; 
+  width: 3px;
+  min-width: 500px !important;
+  max-width: 500px !important;
+  max-width: 15% 1% 1% 1%;
+  padding: 2%;
+  padding-left: 4%;
+  border-radius: 6px;
+  border: 0;
+  background-color: var(--blue-50);
+}
+.testimonial-card-paragraph{
+  font-size: 0.8rem;
+  max-width: 90%;
+  min-height: 73px;
+  margin-top: 8%;
+}
+.landing-testimonial-row{
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-top: 10% !important;
+  justify-content: center;
+}
+.blue-card{
+ background-color: var(--blue-500);
+ color: var(--blue-50);
+margin: -2%;
+ z-index: 10;
+ position: relative;
+ top: -100px;
+}
+.landing-testimonial-picture-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: -50px;
+}
+.landing-testimonial-btn{
+  width: 200px;
+  text-align: center;
+  border: 2px solid var(--blue-500);
+  padding: 10px 0 10px 0;
+  margin-top: 7%;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  color: var(--blue-500);
+  text-decoration: none;
+}
+.blue-card-p{
+  color: var(--black);
+}
+@media(max-width: 1200px){
+  .blue-card{
+    margin: 0%;
+    position: unset;
+  }
+  .landing-testimonial-row{
+    gap: 40px !important;
+  }
+}
+
