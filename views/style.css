@@ -77,7 +77,7 @@
 }
 
 .footer-logo {
-  width: 150px;
+  width: 200px;
 }
 .footer-logo img {
   width: 100%;
@@ -109,94 +109,6 @@
 }
 
 /*header*/
-.main-header{
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: rgba(0,0,0, 0.5);
-  z-index: 99;
-}
-.navbar-toggler{
-  background-color: var(--white) !important;
-  
-}
-.search-span{
-  color: var(--white);
-  letter-spacing: 5px;
-}
-@media (max-width: 990px){
-  #navbarContent{
-    position: absolute;
-    right: 0;
-    top: 100px;
-    background-color: var(--black);
-    z-index: 10;
-    padding: 20px 0 20px 0;
-    border-radius: 10px;
-}
-  .navbar-nav{
-    align-items: center;
-  }
-  .right-side-nav{
-    flex-direction: column;
-  }
-  .white-vertical-lines{
-    display: none;
-  }
-}
-@media (min-width: 991px){
-  .search-span{
-    display: none;
-  }
-}
-/* Dropdown fade-in and slide-down animation */
-.dropdown-menu {
-  display: none;
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Show dropdown menu */
-.dropdown.show .dropdown-menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-
- 
-}
-.color-white{
-  color: var(--white) !important;
-}
-.navbar-nav{
-  margin-left: auto;
-  color: var(--white);
-  gap: 20px;
-}
-.navbar-brand{
-  margin-left: 5%;
-}
-.white-vertical-lines{
-  width: 1px;
-  height: 35px;
-  background-color: var(--white);
-}
-.right-side-nav{
-  margin-right: 5%;
-}
-.navbar .dropdown-toggle::after{
-  color: white;
-}
-.nav-link{
-  letter-spacing: 3px;
-}
-.book-an-appointment-btn{
-  border: var(--white) 2px solid !important;
-  border-radius: 20px !important;
-}
 .button {
   position: relative;
   color: white;
@@ -227,6 +139,171 @@
     box-shadow: 0 0 0 18px rgba(255, 255, 255, 0); 
   }
 }
+.main-header{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0, 0.5);
+  z-index: 99;
+}
+.navbar-toggler{
+  background-color: var(--white) !important;
+  
+}
+.search-span{
+  color: var(--white);
+  letter-spacing: 5px;
+}
+
+@media (max-width: 990px){
+  #navbarContent{
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: var(--black);
+    z-index: 10;
+    padding: 20px 0 20px 0;
+    border-radius: 10px;
+}
+  .navbar-nav{
+    align-items: center;
+  }
+  .right-side-nav{
+    flex-direction: column;
+  }
+  .white-vertical-lines{
+    display: none;
+  }
+  .main-header.scrolled #navbarContent{
+    background-color: var(--white) !important;
+    border: 2px solid var(--black)
+  }
+}
+@media (min-width: 991px){
+  .search-span{
+    display: none;
+  }
+}
+.book-an-appointment-btn:hover{
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+  fill: var(--black) !important;
+}
+.book-an-appointment-btn:hover .icon{ 
+  color: var(--black) !important;
+  fill: var(--black) !important;
+}
+.logo-span{
+  color: var(--white);
+}
+.color-white{
+  color: var(--white) !important;
+}
+.color-white:hover{
+  color: var(--blue-500) !important;
+}
+/* Scrolled Header Color */
+.main-header.scrolled {
+  background-color: var(--white) !important; /* Color when scrolled */
+}
+.icon{
+  fill: var(--white)
+}
+.icon:hover{
+  fill: var(--blue-500);
+}
+.main-header.scrolled .icon{
+  fill: var(--black) !important; /* Color when scrolled */
+}
+.main-header.scrolled .icon:hover{
+  fill: var(--blue-500) !important;
+}
+.main-header.scrolled span{
+  color: var(--black);
+}
+.main-header.scrolled .button{
+  color: var(--black) !important;
+  border: 2px solid var(--black) !important;
+}
+.main-header.scrolled .button-pulse{
+  box-shadow: 0 0 0 0 var(--black)
+}
+/* Color of links when header is scrolled */
+.main-header.scrolled .color-white {
+  color: var(--black) !important;
+  background-color: var(--white) !important;
+  
+}
+.main-header.scrolled .color-white:hover{
+  color: var(--blue-500) !important; 
+}
+.main-header.scrolled .white-vertical-lines{
+  background-color: var(--black) !important;
+}
+.main-header.scrolled .go-up-link{
+  display: block;
+}
+.go-up-link{
+  position: fixed;
+  bottom: 40%;
+  right: 5%;
+  z-index: 20;
+  display: none;
+  opacity: 0.5;
+}
+.go-up-link:hover{
+  opacity: 1;
+}
+/* Dropdown fade-in and slide-down animation */
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show dropdown menu */
+.dropdown.show .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+
+ 
+}
+
+.navbar-nav{
+  margin-left: auto;
+  color: var(--white);
+  gap: 20px;
+}
+.navbar-brand{
+  margin-left: 5%;
+}
+.white-vertical-lines{
+  width: 1px;
+  height: 35px;
+  background-color: var(--white);
+}
+.right-side-nav{
+  margin-right: 5%;
+}
+.navbar .dropdown-toggle::after{
+  color: white;
+}
+.nav-link{
+  letter-spacing: 3px;
+}
+.book-an-appointment-btn{
+  border: var(--white) 2px solid !important;
+  border-radius: 7px !important;
+  color: var(--white) !important;
+  display: flex !important;
+  gap: 5px !important;
+  align-items: center !important;
+}
 /*dashboard*/
 .dashboard-body{
   height: 100vh;
@@ -237,13 +314,33 @@
   width: 100%;
   height: 100lvh;
 }
+@keyframes slideBackground {
+  0%, 20% {
+    background-image: url(../images/hero-bg.png);
+  }
+  25%, 45% {
+    background-image: url(../images/hero-bg2.png);
+  }
+  50%, 70% {
+    background-image: url(../images/hero-bg3.png);
+  }
+  75%, 95% {
+    background-image: url(../images/hero-bg4.png);
+  }
+  100% {
+    background-image: url(../images/hero-bg.png); /* Loop back to the first */
+  }
+}
+
+
 #firstSection {
   position: relative;
   padding: 20px;
-  background-image: url(../images/hero-bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: slideBackground 25s infinite;
+  transition: background-image 15s ease-in-out;
 }
 
 #firstSection::before {
@@ -454,6 +551,7 @@
   padding: 5% 20% 5% 20%;
   text-align: center;
 }
+
 .how-it-works-step{
   display: flex;
   flex-direction: column;

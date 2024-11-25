@@ -7,3 +7,12 @@ dropdownButton.addEventListener('click', function() {
 
 // animation 
 
+window.addEventListener('scroll', function() {
+  var header = document.querySelector('.main-header');
+  // Check if page has scrolled down by 100vh
+  if (window.scrollY >= window.innerHeight) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
