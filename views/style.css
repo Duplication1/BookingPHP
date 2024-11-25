@@ -164,7 +164,7 @@
     right: 0;
     top: 100px;
     background-color: var(--black);
-    z-index: 10;
+    z-index: 99;
     padding: 20px 0 20px 0;
     border-radius: 10px;
 }
@@ -196,6 +196,7 @@
   color: var(--black) !important;
   fill: var(--black) !important;
 }
+
 .logo-span{
   color: var(--white);
 }
@@ -205,6 +206,7 @@
 .color-white:hover{
   color: var(--blue-500) !important;
 }
+
 /* Scrolled Header Color */
 .main-header.scrolled {
   background-color: var(--white) !important; /* Color when scrolled */
@@ -231,11 +233,28 @@
 .main-header.scrolled .button-pulse{
   box-shadow: 0 0 0 0 var(--black)
 }
+.main-header.scrolled.button-pulse.target{
+  box-shadow: none !important;
+}
+.main-header.scrolled .button.target{
+  color: var(--blue-500) !important;
+  border: var(--blue-500) 2px solid !important;
+}
+.main-header.scrolled .icon.target{
+  fill: var(--blue-500) !important;
+  color: var(--blue-500) !important;
+}
+.main-header.scrolled span.target{
+  color: var(--blue-500) !important;
+}
 /* Color of links when header is scrolled */
 .main-header.scrolled .color-white {
   color: var(--black) !important;
   background-color: var(--white) !important;
   
+}
+.main-header.scrolled .color-white.target{
+  color: var(--blue-500) !important; 
 }
 .main-header.scrolled .color-white:hover{
   color: var(--blue-500) !important; 
@@ -243,7 +262,7 @@
 .main-header.scrolled .white-vertical-lines{
   background-color: var(--black) !important;
 }
-.main-header.scrolled .go-up-link{
+.go-up-link.appear{
   display: block;
 }
 .go-up-link{
@@ -296,6 +315,7 @@
 .nav-link{
   letter-spacing: 3px;
 }
+
 .book-an-appointment-btn{
   border: var(--white) 2px solid !important;
   border-radius: 7px !important;
@@ -692,4 +712,32 @@ margin: -2%;
     gap: 40px !important;
   }
 }
+#loginSection, #registrationSection{
+  padding-top: 10%
+}
+.login-container, .registration-container{
+  border: 2px solid var(--grey-400);
+  width: 55% !important;
+  padding: 3% 5% 3% 5% !important;
+}
 
+.login-col{
+  background-color: var(--blue-500);
+  color: var(--white);
+  padding: 1.5% 5% 1.5% 5%;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: var(--blue-500) 1px solid;
+}
+.signup-col{
+  padding: 1.5% 5% 1.5% 5%;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: var(--blue-500) 1px solid;
+}
