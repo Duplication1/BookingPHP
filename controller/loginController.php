@@ -1,56 +1,49 @@
-<?php 
-if(isset($_POST["login"])){
+<?php
+$errors = []; // Initialize an array for errors
+
+if (isset($_POST["login"])) {
     $email = $_POST["Email"];
     $password = $_POST["password"];
-    $errors = array();
-    
-    // Validate email
-    if(empty($email) || empty($password)){
-        array_push($errors, "Both fields are required.");
+
+    // Validate email and password
+    if (empty($email) || empty($password)) {
+        $errors[] = "Both fields are required.";
     }
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        array_push($errors, "Invalid email format.");
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
     }
 
-    if(count($errors) > 0){
-        foreach($errors as $error){
-            echo "<div class='alert alert-danger'>$error</div>";
-        }
-    } else {
+    if (empty($errors)) {
         // Connect to the database
         require_once "../model/db.php";
 
-        // Check if email exists
         $sql = "SELECT * FROM user WHERE email = ?";
         $stmt = mysqli_stmt_init($conn);
 
-        if(mysqli_stmt_prepare($stmt, $sql)){
+        if (mysqli_stmt_prepare($stmt, $sql)) {
             mysqli_stmt_bind_param($stmt, "s", $email);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
-            // Check if user exists
-            if($row = mysqli_fetch_assoc($result)){
-                // Verify password
-                if(password_verify($password, $row['password'])){
-                    // Start the session and redirect to a logged-in page
+            if ($row = mysqli_fetch_assoc($result)) {
+                if (password_verify($password, $row['password'])) {
                     session_start();
-                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['user_id'] = $row['uid'];
                     $_SESSION['email'] = $row['email'];
-                    echo "<div class='alert alert-success'>Login successful! Redirecting...</div>";
-                    header("Location: dashboard.php");  // Redirect to the welcome page after successful login
+                    header("Location: dashboard.php");
                     exit();
                 } else {
-                    echo "<div class='alert alert-danger'>Incorrect password.</div>";
+                    $errors[] = "Incorrect password.";
                 }
             } else {
-                echo "<div class='alert alert-danger'>No account found with that email.</div>";
+                $errors[] = "No account found with that email.";
             }
         } else {
-            die("Error preparing the query.");
+            $errors[] = "Database query failed.";
         }
     }
 }
 
-?>
+// Return errors to be displayed in the form
+return $errors;

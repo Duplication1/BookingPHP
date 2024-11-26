@@ -153,10 +153,7 @@
   background-color: var(--white) !important;
   
 }
-.search-span{
-  color: var(--white);
-  letter-spacing: 5px;
-}
+
 
 @media (max-width: 990px){
   #navbarContent{
@@ -168,6 +165,7 @@
     padding: 20px 0 20px 0;
     border-radius: 10px;
 }
+
   .navbar-nav{
     align-items: center;
   }
@@ -206,7 +204,13 @@
 .color-white:hover{
   color: var(--blue-500) !important;
 }
-
+.color-white.search-span:hover{
+  color: var(--blue--500) !important;
+}
+.search-span{
+  letter-spacing: 3px;
+  font-weight: bold;
+}
 /* Scrolled Header Color */
 .main-header.scrolled {
   background-color: var(--white) !important; /* Color when scrolled */
@@ -214,21 +218,30 @@
 .icon{
   fill: var(--white)
 }
-.icon:hover{
+
+a:hover .icon{
   fill: var(--blue-500);
 }
-.main-header.scrolled .icon{
+.main-header.scrolled a .icon{
   fill: var(--black) !important; /* Color when scrolled */
 }
-.main-header.scrolled .icon:hover{
-  fill: var(--blue-500) !important;
-}
-.main-header.scrolled span{
+
+.main-header.scrolled a{
   color: var(--black);
+}
+.main-header.scrolled a:hover{
+  color: var(--blue-500) !important;
+}
+
+.main-header.scrolled a:hover .icon{
+  fill: var(--blue-500) !important;  
 }
 .main-header.scrolled .button{
   color: var(--black) !important;
   border: 2px solid var(--black) !important;
+}
+.main-header.scrolled .button:hover{
+  border: 2px solid var(--blue-500) !important;
 }
 .main-header.scrolled .button-pulse{
   box-shadow: 0 0 0 0 var(--black)
@@ -247,6 +260,9 @@
 .main-header.scrolled span.target{
   color: var(--blue-500) !important;
 }
+.main-header.scrolled .logo-span{
+  color: var(--black) !important;
+}
 /* Color of links when header is scrolled */
 .main-header.scrolled .color-white {
   color: var(--black) !important;
@@ -262,6 +278,7 @@
 .main-header.scrolled .white-vertical-lines{
   background-color: var(--black) !important;
 }
+
 .go-up-link.appear{
   display: block;
 }
@@ -276,22 +293,7 @@
 .go-up-link:hover{
   opacity: 1;
 }
-/* Dropdown fade-in and slide-down animation */
-.dropdown-menu {
-  display: none;
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
 
-/* Show dropdown menu */
-.dropdown.show .dropdown-menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-
- 
-}
 
 .navbar-nav{
   margin-left: auto;
@@ -323,6 +325,7 @@
   display: flex !important;
   gap: 5px !important;
   align-items: center !important;
+  font-weight: bold !important;
 }
 /*dashboard*/
 .dashboard-body{
@@ -519,6 +522,7 @@
 }
 .landing-frames-img-container img{
   height: 100%;
+  width: 100%;
 }
 .landing-frames-right-side-container{
   padding: 5% 2% 5% 5% !important;
@@ -554,6 +558,9 @@
   }
   .landing-frames-right-side-container{
     text-align: center;
+  }
+  .landing-frames-btn{
+    margin: 0 auto;
   }
 }
 .our-doctors-container{
@@ -656,7 +663,7 @@
   min-width: 500px !important;
   max-width: 500px !important;
   max-width: 15% 1% 1% 1%;
-  padding: 2%;
+  padding: 0.8%;
   padding-left: 4%;
   border-radius: 6px;
   border: 0;
@@ -667,6 +674,9 @@
   max-width: 90%;
   min-height: 73px;
   margin-top: 8%;
+  font-weight: 500;
+  text-align: center;
+  font-style: italic;
 }
 .landing-testimonial-row{
   max-width: 100% !important;
@@ -687,7 +697,7 @@ margin: -2%;
   flex-direction: column;
   align-items: center;
   position: relative;
-  bottom: -50px;
+  bottom: -25%;
 }
 .landing-testimonial-btn{
   width: 200px;
@@ -709,7 +719,7 @@ margin: -2%;
     position: unset;
   }
   .landing-testimonial-row{
-    gap: 40px !important;
+    gap: 60px !important;
   }
 }
 #loginSection, #registrationSection{
@@ -741,3 +751,67 @@ margin: -2%;
   letter-spacing: 0.1em;
   border: var(--blue-500) 1px solid;
 }
+
+.login-col-v2{
+  padding: 1.5% 5% 1.5% 5%;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: var(--blue-500) 1px solid;
+}
+.signup-col-v2{
+  background-color: var(--blue-500);
+  color: var(--white);
+  padding: 1.5% 5% 1.5% 5%;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: var(--blue-500) 1px solid;
+}
+.login-registration-row {
+  margin: 5% 0 5% 0;
+  position: relative;
+}
+
+.eye-btn{
+  border: 0;
+  width: 50px;
+  background-color: transparent;
+  font-size: 2em;
+  position:absolute;
+  top: 20%;
+  right: 2%;
+}
+.register-btn{
+  height: 75px;
+  font-size: 1.5rem !important;
+  background-color: var(--blue-500) !important;
+}
+@media(max-width: 990px){
+  #loginSection, #registrationSection{
+    padding-top: 30%
+  }
+}
+
+#registrationSection{
+  height: auto;
+  padding-bottom: 10%;
+}
+
+.name-col {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.error-container{
+  display: flex !important;
+  gap: 10px;
+  margin-top: 5%;
+  justify-content: center;
+}
+
+

@@ -1,4 +1,6 @@
 <?php
+
+ 
 if(isset($_POST["submit"])) {
     // Retrieve form data
     $LastName = $_POST["LastName"];
@@ -21,8 +23,8 @@ if(isset($_POST["submit"])) {
     }
 
     // Validate phone number (optional check for numeric and length)
-    if(!preg_match('/^\d{10}$/', $phoneNumber)) {
-        array_push($errors, "Phone number must be 10 digits.");
+    if(!preg_match('/^\d{11}$/', $phoneNumber)) {
+        array_push($errors, "Phone number must be 11 digits.");
     }
 
     // Check password length
@@ -43,7 +45,7 @@ if(isset($_POST["submit"])) {
     if($rowCount > 0) {
         array_push($errors, "Email or Phone Number already exists.");
     }
-
+    
     // If there are errors, display them
     if(count($errors) > 0) {
         foreach($errors as $error) {

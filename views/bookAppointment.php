@@ -32,6 +32,7 @@
     <script>
   document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll(".main-header .button-pulse");
+  const secondLinks = document.querySelectorAll(".main-header .button-pulse");
   const buttonLinks = document.querySelectorAll(".main-header .button");
   const iconLinks = document.querySelectorAll(".main-header .icon"); // Select SVG icons
   const currentPage = window.location.pathname.split("/").pop(); // Get current file name
@@ -61,6 +62,9 @@
       icon.classList.remove("target");
     }
   });
+
+
+  
 });
 
 
