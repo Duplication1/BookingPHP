@@ -24,7 +24,7 @@
     if($_SESSION['role'] === 'user'){
     include 'components/userHeader.php';
     }
-    else{
+    else if($_SESSION['role'] === 'admin'){
     include 'components/adminHeader.php';
     }
     include 'components/logoutModal.html';

@@ -814,4 +814,15 @@ margin: -2%;
   justify-content: center;
 }
 
+#bookAppointmentSection{
+  padding-top: 20%;
+}
 
+#calendar {
+  font-size: 1.5rem; /* Increase font size */
+  padding: 10px; /* Add padding for better spacing */
+  width: 100%; /* Make it full width */
+  max-width: 400px; /* Set a maximum width */
+  border: 2px solid #ccc; /* Add a border for visibility */
+  border-radius: 5px; /* Rounded corners */
+}
