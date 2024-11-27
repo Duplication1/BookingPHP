@@ -1,5 +1,8 @@
 
-  <?php include '../sessions/session_start.php'?>
+  <?php include '../sessions/session_start.php';
+        include '../controller/registrationController.php';
+  ?>
+
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -19,7 +22,7 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   </head>
   <body>
-      <?php include 'components/header.html'?>
+      <?php include 'components/header.php';?>
       <section class="sections" id="registrationSection">
           <form action="registration.php" method="post" class="registration-container container">
               <div class="row login-signup-row">
@@ -27,9 +30,14 @@
                   <a href="registration.php" class="col signup-col-v2">SIGN UP</a>
               </div>
               <div class="error-container"> 
-              <?php 
-                  include '../controller/registrationController.php'
-              ?>
+              <?php
+                if (isset($_SESSION['errors'])) {
+                  foreach ($_SESSION['errors'] as $error) {
+                   echo "<div class='alert alert-danger'>$error</div>";
+                   }
+                    unset($_SESSION['errors']);
+                   }
+                  ?>
               </div>
               <div class="login-registration-row row mt-5">
                 <div class="col name-col">

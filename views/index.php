@@ -1,4 +1,6 @@
 
+<?php include '../controller/loginController.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +21,7 @@
 </head>
 
 <body>
-    <?php include 'components/header.html'; ?>
+    <?php include 'components/header.php'; ?>
     <div class="dashboard-body">
         <?php include 'components/goUp.html' ?>
         <section class="sections" id="firstSection">

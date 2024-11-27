@@ -53,3 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+function logOutModalPopUp() {
+    // Get the modal element
+    var myModal = new bootstrap.Modal(document.getElementById('logOutModalPopUp'), {
+      keyboard: false
+    });
+    // Show the modal
+    myModal.show();
+  }
+  
