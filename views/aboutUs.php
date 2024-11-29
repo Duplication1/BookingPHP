@@ -22,26 +22,13 @@
        
     </section>
     <?php include 'components/footer.html'?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
       new WOW().init();
     </script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="domLoaded.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".nav-link");
-    const currentPage = window.location.pathname.split("/").pop(); // Get current file name
-  
-    links.forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("target");
-      } else {
-        link.classList.remove("target");
-      }
-    });
-  });
-    </script>
-</body>
+    <script src="js/domLoaded.js"></script>
+    <script src="js/links.js"></script>
+</body> 
 </html>

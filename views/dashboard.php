@@ -54,28 +54,14 @@
         <?php include 'components/footer.html'; ?>
         
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
       new WOW().init();
     </script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-      window.addEventListener('scroll', function() {
-  var header = document.querySelector('.main-header');
-  var goUp = document.querySelector('.go-up-link');
-  // Check if page has scrolled down by 100vh
-  if (window.scrollY >= window.innerHeight) {
-    header.classList.add('scrolled');
-    goUp.classList.add('appear');
-  } else {
-    header.classList.remove('scrolled');
-    goUp.classList.remove('appear');
-  }
-});
-    </script>
-    <script src="links.js">
-    </script>
+    <script src="js/headerDashboard.js"></script>
+    <script src="js/links.js"></script>
 </body>
 
 </html>

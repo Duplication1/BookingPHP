@@ -22,40 +22,13 @@
        
     </section>
     <?php include 'components/footer.html'?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
       new WOW().init();
     </script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="domLoaded.js"></script>
-    <script>
-     document.addEventListener("DOMContentLoaded", function () {
-  const spanLinks = document.querySelectorAll(".main-header span");
-  const iconLinks = document.querySelectorAll(".main-header .icon"); // Select SVG icons
-  const currentPage = window.location.pathname.split("/").pop(); // Get current file name
-
-
-  spanLinks.forEach(icon => {
-    const page = icon.getAttribute("data-page"); // Get the data-page attribute from the SVG icon
-    if (page === currentPage) {
-      icon.classList.add("target");
-    } else {
-      icon.classList.remove("target");
-    }
-  });
-
-  iconLinks.forEach(icon => {
-    const page = icon.getAttribute("data-page"); // Get the data-page attribute from the SVG icon
-    if (page === currentPage) {
-      icon.classList.add("target");
-    } else {
-      icon.classList.remove("target");
-    }
-  });
-  
-});
-
-    </script>
+    <script src="js/domLoaded.js"></script>
+    <script src="js/iconLinks.js"></script>
 </body>
 </html>

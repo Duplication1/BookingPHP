@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $time = $_POST['time'];  // Time selected by the user
     $branch = $_POST['branches'];  // Branch selected by the user
     $description = isset($_POST['description']) ? $_POST['description'] : '';  // Description (optional)
-    $user_id = $_SESSION['user_id'];  // Assuming the user ID is stored in the session
+    $user_id = $_SESSION['user_id']; 
+    $status = 'pending'; // Assuming the user ID is stored in the session
 
     // Validate the date and time (ensure it's within the correct range)
     $minTime = "08:00";
@@ -68,12 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $messages[] = ['type' => 'error', 'text' => "This time slot is already taken. Please choose a different time."];
             } else {
                 // Prepare the SQL query to insert the appointment
-                $insertQuery = "INSERT INTO appointments (uid, branch, date, time, description) 
-                                VALUES (?, ?, ?, ?, ?)";
+                $insertQuery = "INSERT INTO appointments (uid, branch, date, time, description, status) 
+                                VALUES (?, ?, ?, ?, ?, ?)";
 
                 // Prepare the insert statement
                 if ($insertStmt = $conn->prepare($insertQuery)) {
-                    $insertStmt->bind_param("sssss", $user_id, $branch, $date->format('Y-m-d'), $startTimeFormatted, $description);
+                    $insertStmt->bind_param("ssssss", $user_id, $branch, $date->format('Y-m-d'), $startTimeFormatted, $description, $status);
 
                     // Execute the statement
                     if ($insertStmt->execute()) {
