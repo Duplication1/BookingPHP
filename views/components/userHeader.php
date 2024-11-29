@@ -3,7 +3,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
         <img src="../images/logo.png" alt="Dental Clinic Logo" height="50">
-        <span class="ms-2 fw-bold logo-span">USER</span>
+        <span class="ms-2 fw-bold logo-span"><span class="ms-2 fw-bold logo-span"><?php echo strtoupper($_SESSION['firstname']); ?>'S DASHBOARD</span>
+
       </a>
       <button class="navbar-toggler button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,6 +19,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link color-white fw-bold" href="contactUs.php">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link color-white fw-bold" href="myBook.php">MY BOOK</a>
           </li>
         </ul>
         <div class="d-flex gap-2 align-items-center right-side-nav">

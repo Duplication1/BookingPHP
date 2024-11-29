@@ -6,7 +6,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p id="welcomeMessage">Hello, User! Welcome back to the site.</p>
+        <p id="welcomeMessage">You successfully logged in as an 
+          <?php 
+            if(isset($_SESSION['role']) && $_SESSION['role'] === 'user'){
+              echo 'User, ' . ucfirst($_SESSION['firstname']); 
+            }
+            else if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'){
+              echo 'Admin, ' . ucfirst($_SESSION['firstname']); 
+            }
+            else{
+              echo 'Guest';
+            }
+          ?>!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it</button>

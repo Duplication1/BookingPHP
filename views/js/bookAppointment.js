@@ -1,3 +1,6 @@
+ // button pulse
+ // hovers
+ 
  document.addEventListener("DOMContentLoaded", function () {
             const links = document.querySelectorAll(".main-header .button-pulse");
             const buttonLinks = document.querySelectorAll(".main-header .button");
@@ -31,6 +34,9 @@
             });
         });
 
+
+
+        // calendar logic
  document.addEventListener("DOMContentLoaded", function () {
     // Initialize Flatpickr for date selection
     flatpickr("#inline-calendar", {

@@ -51,10 +51,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $endTimeFormatted = $endTime->format('H:i');
 
         // Check if the selected time conflicts with an existing appointment
-        $query = "SELECT * FROM appointments WHERE date = ? AND branch = ? AND (
-                  (time >= ? AND time < ?) OR 
-                  (DATE_ADD(time, INTERVAL 15 MINUTE) > ? AND time < ?)
-                  )";
+        $query = "SELECT * FROM appointments 
+        WHERE date = ? 
+        AND branch = ? 
+        AND status = 'Accepted' AND (
+            (time >= ? AND time < ?) OR 
+            (DATE_ADD(time, INTERVAL 15 MINUTE) > ? AND time < ?)
+        )";
+
 
         // Prepare the statement to prevent SQL injection
         if ($stmt = $conn->prepare($query)) {
@@ -70,7 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Prepare the SQL query to insert the appointment
                 $insertQuery = "INSERT INTO appointments (uid, branch, date, time, description, status) 
-                                VALUES (?, ?, ?, ?, ?, ?)";
+                VALUES (?, ?, ?, ?, ?, 'Pending')";
+
 
                 // Prepare the insert statement
                 if ($insertStmt = $conn->prepare($insertQuery)) {

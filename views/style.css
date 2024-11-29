@@ -827,3 +827,16 @@ margin: -2%;
   border: 2px solid #ccc; /* Add a border for visibility */
   border-radius: 5px; /* Rounded corners */
 }
+
+
+#myBookSection{
+  height: auto;
+
+}
+.my-table-container{
+  margin:  auto;
+  width: 50%;
+}
+.my-table-container{
+  margin-top: 10% !important;
+}

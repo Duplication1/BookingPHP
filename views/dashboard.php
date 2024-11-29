@@ -1,7 +1,14 @@
-<?php 
-    include '../sessions/session_start.php';
-    include '../sessions/session_detection.php';
-    
+<?php
+session_start();
+if (isset($_SESSION['show_modal']) && $_SESSION['show_modal'] == true) {
+    echo "<script type='text/javascript'>
+            window.onload = function() {
+                var myModal = new bootstrap.Modal(document.getElementById('welcomeModalPopUp'));
+                myModal.show();
+            };
+          </script>";
+    unset($_SESSION['show_modal']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +27,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <?php 
-    if($_SESSION['role'] === 'user'){
+<?php 
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
     include 'components/userHeader.php';
-    }
-    else if($_SESSION['role'] === 'admin'){
+    } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     include 'components/adminHeader.php';
-    }
+    } else {
+    include 'components/header.php';
+      }
     include 'components/logoutModal.html';
+    include 'components/welcomeUser.php';
     ?>
      <div class="dashboard-body">
         <?php include 'components/goUp.html';

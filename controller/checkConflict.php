@@ -26,8 +26,8 @@ if ($startTimeTimestamp < $clinicStartTimeTimestamp || $endTimeTimestamp > $clin
     exit;
 }
 
-// Query to check if there's a conflict in the appointments table
-$query = "SELECT * FROM appointments WHERE date = ? AND time BETWEEN ? AND ?";
+// Query to check if there's a conflict in the appointments table, considering only accepted appointments
+$query = "SELECT * FROM appointments WHERE date = ? AND status = 'Accepted' AND time BETWEEN ? AND ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("sss", $date, $startTime, $endTime);
 $stmt->execute();

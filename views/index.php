@@ -1,5 +1,7 @@
 
-<?php include '../controller/loginController.php'; 
+<?php 
+session_start();
+include '../controller/loginController.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +23,16 @@
 </head>
 
 <body>
-    <?php include 'components/header.php'; ?>
+<?php 
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
+    include 'components/userHeader.php';
+    } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+    include 'components/adminHeader.php';
+    } else {
+    include 'components/header.php';
+      }
+    include 'components/logoutModal.html';
+    ?>
     <div class="dashboard-body">
         <?php include 'components/goUp.html' ?>
         <section class="sections" id="firstSection">

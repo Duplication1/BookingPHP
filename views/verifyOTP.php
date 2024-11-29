@@ -20,7 +20,16 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    <?php include 'components/header.php'?>
+<?php 
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
+    include 'components/userHeader.php';
+    } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+    include 'components/adminHeader.php';
+    } else {
+    include 'components/header.php';
+      }
+    include 'components/logoutModal.html';
+    ?>
     <section class="sections" >
     <div class="container mt-5">
         <h2 class="text-center">Verify OTP</h2>

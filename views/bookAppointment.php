@@ -21,14 +21,15 @@
 </head>
 <body>
     <?php 
-        if ($_SESSION['role'] === 'user') {
-            include 'components/userHeader.php';
-        } else if ($_SESSION['role'] === 'admin') {
-            include 'components/adminHeader.php';
-        }
-        include 'components/logoutModal.html';
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
+    include 'components/userHeader.php';
+    } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+    include 'components/adminHeader.php';
+    } else {
+    include 'components/header.php';
+      }
+    include 'components/logoutModal.html';
     ?>
-
     <section class="sections" id="bookAppointmentSection">
         <form class="container" action="bookAppointment.php" method="POST">
             <div class="row">

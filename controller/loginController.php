@@ -1,7 +1,5 @@
 <?php 
 $errors = []; // Initialize an array for errors
-// After successful login, store role from database
-
 
 if (isset($_POST["login"])) {
     $email = $_POST["Email"];
@@ -35,6 +33,11 @@ if (isset($_POST["login"])) {
                     $_SESSION['user_id'] = $row['uid'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['role'] = $row['role'];
+                    $_SESSION['firstname'] = $row['First_Name'];
+                    
+                    // Set session variable to show the modal
+                    $_SESSION['show_modal'] = true; // New session variable to trigger the modal
+                    
                     // If "Remember Me" is checked
                     if ($rememberMe) {
                         // Generate a token and set cookie
@@ -85,6 +88,11 @@ if (isset($_COOKIE["remember_me"])) {
             $_SESSION['user_id'] = $row['uid'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
+            $_SESSION['firstname'] = $row['First_Name'];
+            
+            // Set session variable to show the modal
+            $_SESSION['show_modal'] = true; // New session variable to trigger the modal
+            
             header("Location: dashboard.php");
             exit();
         }
@@ -93,5 +101,4 @@ if (isset($_COOKIE["remember_me"])) {
 
 // Return errors to be displayed in the form
 return $errors;
-
 ?>
