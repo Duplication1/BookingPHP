@@ -26,6 +26,7 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/cancelModal.html'
     ?>
     <section class="sections" id="#myBookSection">
   <div class="my-table-container">
@@ -33,12 +34,13 @@
     <table id="myTable" class="hover">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>No.</th>
           <th>Branch</th>
           <th>Date</th>
           <th>Time</th>
           <th>Description</th>
           <th>Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -64,8 +66,28 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
     <script>
       $(document).ready(function () {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({
+  columnDefs: [{
+    "defaultContent": "-",
+    "targets": "_all"
+  }],
+  "order": [[0, 'desc']]
+});
       });
     </script>
+    <script>
+  function showCancelModal(appointmentId) {
+    // Set the appointment ID in the hidden input field of the form
+    document.getElementById('cancel_id').value = appointmentId;
+    // Show the modal
+    new bootstrap.Modal(document.getElementById('cancelModal')).show();
+  }
+</script>
+<script>
+    function submitRatingForm(appointmentId) {
+        var form = document.getElementById('ratingForm_' + appointmentId);
+        form.submit();
+    }
+</script>
 </body> 
 </html>

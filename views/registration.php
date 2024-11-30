@@ -1,5 +1,5 @@
 
-  <?php session_start();
+  <?php 
         include '../controller/registrationController.php';
   ?>
 
@@ -81,7 +81,7 @@
               </div>
               <div class="login-registration-row row">
                 <div class="col name-col">
-                  <label for="Email"><img src="../images/email-icon.png" /></label>
+                  <label for="repeatPassword"><img src="../images/email-icon.png" /></label>
                   <input type="password" name="repeat_password" placeholder="Repeat Password: " class="form-control" id="repeatPassword"/>
                   <button class="eye-btn" type="button" id="toggleRepeatPassword">
                       <i class="bi bi-eye-slash" id="toggleRepeatIcon" ></i>

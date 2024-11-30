@@ -34,9 +34,7 @@ if (isset($_POST["login"])) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['firstname'] = $row['First_Name'];
-                    
-                    // Set session variable to show the modal
-                    $_SESSION['show_modal'] = true; // New session variable to trigger the modal
+                    $_SESSION['show_modal'] = true;
                     
                     // If "Remember Me" is checked
                     if ($rememberMe) {
@@ -89,9 +87,7 @@ if (isset($_COOKIE["remember_me"])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
             $_SESSION['firstname'] = $row['First_Name'];
-            
-            // Set session variable to show the modal
-            $_SESSION['show_modal'] = true; // New session variable to trigger the modal
+            $_SESSION['show_modal'] = true;
             
             header("Location: dashboard.php");
             exit();

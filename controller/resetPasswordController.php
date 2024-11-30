@@ -36,6 +36,9 @@ if (empty($token)) {
                     $errors[] = "Both password fields are required.";
                 } elseif ($newPassword !== $confirmPassword) {
                     $errors[] = "Passwords do not match.";
+                } elseif (strlen($newPassword) < 8) {
+                    // Check if password is at least 8 characters long
+                    $errors[] = "Password must be at least 8 characters long.";
                 } else {
                     // Update the password in the database
                     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);

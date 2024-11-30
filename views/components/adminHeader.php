@@ -47,7 +47,7 @@
           <div class="white-vertical-lines"></div>
 
           <a class="btn color-white" href="#" onclick="logOutModalPopUp()">
-            <span class="search-span" data-page="">LogOut</span>
+            <span class="search-span" data-page="">LOGOUT</span>
             <svg class="icon" data-page="login.php,registration.php,verifyOTP.php"width="45" height="40" viewBox="5 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.375 35C8.34375 35 7.46094 34.6736 6.72656 34.0208C5.99219 33.3681 5.625 32.5833 5.625 31.6667V8.33333C5.625 7.41667 5.99219 6.63194 6.72656 5.97917C7.46094 5.32639 8.34375 5 9.375 5H22.5V8.33333H9.375V31.6667H22.5V35H9.375ZM30 28.3333L27.4219 25.9167L32.2031 21.6667H16.875V18.3333H32.2031L27.4219 14.0833L30 11.6667L39.375 20L30 28.3333Z"/>
 </svg>

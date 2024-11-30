@@ -30,15 +30,19 @@
       }
     include 'components/logoutModal.html';
     ?>
-    <section class="sections" >
-    <div class="container mt-5">
-        <h2 class="text-center">Verify OTP</h2>
-        <form method="POST" action="">
-            <div class="mb-3">
-                <label for="otp" class="form-label">Enter OTP</label>
-                <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Verify OTP</button>
+    <section class="sections" id="verifyOTPContainer">
+    <div class="container mt-5 verify-otp-container">
+        <form method="POST" action="" class="verify-otp-form">
+        <h2 class="text-center">OTP Verification</h2>
+        <img src="../images/otp-verify.png" />
+        <p>
+        We sent verification code to
+            <?php echo $_SESSION['user_data']['email']; ?>.
+        To very your email address, please check your inbox and enter the code below
+        </p>
+        
+                <input type="text" class="form-control verify-otp-input" id="otp" name="otp" placeholder="Enter 6-digit code" required>
+            <button type="submit" class="btn btn-primary verify-otp-btn">Verify code</button>
         </form>
     </div>
 </section>

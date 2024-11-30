@@ -49,7 +49,7 @@
   height: auto !important;
   background-color: var(--grey-900);
   color: var(--white);
-
+  z-index: 101 !important;
 }
 .footer-col{
   display: flex !important;
@@ -443,6 +443,7 @@ a:hover .icon{
   text-align: center;
   gap: 20px;
   min-width: 250px;
+  padding: 0 3% 0 3% !important;
 }
 .services div{
   display: flex;
@@ -727,11 +728,18 @@ margin: -2%;
   padding-top: 10%
 }
 .login-container, .registration-container{
-  border: 2px solid var(--grey-400);
-  width: 55% !important;
+  min-width: 40% !important;
+  width: 40% !important;
   padding: 3% 5% 3% 5% !important;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px var(--black);
 }
-
+@media (max-width: 991px){
+  .login-container, .registration-container{
+    min-width: 90% !important; 
+    width: 90% !important;
+  }
+}
 .login-col{
   background-color: var(--blue-500);
   color: var(--white);
@@ -785,16 +793,17 @@ margin: -2%;
   font-size: 2em;
   position:absolute;
   top: 20%;
-  right: 2%;
+  right: 4.5%;
 }
 .register-btn{
   height: 75px;
   font-size: 1.5rem !important;
   background-color: var(--blue-500) !important;
+  margin-top: 5% !important;
 }
 @media(max-width: 990px){
   #loginSection, #registrationSection{
-    padding-top: 30%
+    padding-top: 20%
   }
 }
 
@@ -834,9 +843,116 @@ margin: -2%;
 
 }
 .my-table-container{
-  margin:  auto;
+  margin: 0 auto;
   width: 50%;
-}
-.my-table-container{
   margin-top: 10% !important;
 }
+
+.view-appointment-main-container{
+
+}
+
+.star-rating input[type="radio"] {
+  display: none; /* Hide radio buttons */
+}
+
+.star-rating label {
+  font-size: 2em; /* Size of the stars */
+  color: #ccc; /* Empty star color (light gray) */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--blue-500) /* Change to yellow when selected or hovered */
+}
+
+.star-rating label {
+  transition: color 0.2s ease-in-out; /* Smooth transition for color change */
+}
+
+#forgotPasswordSection {
+  padding-top: 10%;
+}
+@media (max-width:990px){
+  #forgotPasswordSection{
+    padding-top: 20%;
+  }
+}
+
+.forgot-password-link {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.login-col2{
+  display: flex;
+  background-color: var(--white);
+  border: 0;
+  align-items: center;
+  gap: 10px
+}
+.stay-logged-in-input{
+  font-size: 1.5rem;
+}
+.stay-logged-in-label{
+  padding-top: 2%;
+  color: var(--black);
+  font-size: 1.2rem;
+}
+.form-control{
+  border: 1px var(--black) solid !important;
+  border-radius: 0 !important;
+}
+
+#verifyOTPContainer{
+  padding-top: 10%;
+}
+
+.verify-otp-container{
+  min-width: 20%;
+  max-width: 20% !important;
+  width: 30% !important;
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px var(--black);
+  padding: 1% 30px 1% 30px;
+}
+.verify-otp-form{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 5%;
+}
+@media (max-width:991px){
+  .verify-otp-container{
+    min-width: 60%;
+  }
+}
+.verify-otp-btn{
+  width: 100%;
+  background-color: var(--blue-500) !important;
+}
+.verify-otp-input{
+  width: 100% !important;
+  padding: 5% 0 5% 5% !important;
+}
+
+#sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Make sure it covers the whole height of the viewport */
+  z-index: 98; /* Ensure the sidebar stays on top */
+  padding-top: 20px; /* Space out the content a bit */
+  box-shadow: 4px 0px 10px rgba(0,0,0,0.1); /* Optional: shadow effect */
+}
+
+.view-appointment-main-container {
+  margin-left: 250px; /* Adjust this based on the width of your sidebar */
+  padding-left: 20px;
+}
+

@@ -28,7 +28,7 @@
       }
     include 'components/logoutModal.html';
     ?>
-    <section class="sections" id="loginSection">
+    <section class="sections" id="registrationSection">
         <form action="login.php" method="post" class="container login-container">
             <div class="row login-signup-row">
                 <a href="login.php" class="col login-col">LOGIN</a>
@@ -63,17 +63,17 @@
 
             <!-- Forgot Password Link -->
             <div class="row mt-3">
-                <div class="col">
-                   <input type="checkbox" name="remember" id="rememberMe" class="form-check-input"/>
-                  <label for="rememberMe">Stay Logged In?</label>
+                <div class="col login-col2">
+                   <input type="checkbox" name="remember" id="rememberMe" class="form-check-input stay-logged-in-input"/>
+                  <label for="rememberMe" class="stay-logged-in-label">Stay Logged In?</label>
                 </div>
-                <div class="col">
+                <div class="col login-col2">
                     <a href="forgotPassword.php" class="forgot-password-link">Forgot Password?</a>
                 </div>
             </div>
 
             <div class="row">
-                <input type="submit" name="login" value="Login" class="btn btn-primary register-btn" />
+                <input type="submit" name="login" value="LOGIN" class="btn btn-primary register-btn" />
             </div>
         </form>
     </section>

@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Prepare the insert statement
                 if ($insertStmt = $conn->prepare($insertQuery)) {
-                    $insertStmt->bind_param("ssssss", $user_id, $branch, $date->format('Y-m-d'), $startTimeFormatted, $description, $status);
+                    $insertStmt->bind_param("sssss", $user_id, $branch, $date->format('Y-m-d'), $startTimeFormatted, $description);
 
                     // Execute the statement
                     if ($insertStmt->execute()) {
