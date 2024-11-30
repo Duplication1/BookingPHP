@@ -955,4 +955,11 @@ margin: -2%;
   margin-left: 250px; /* Adjust this based on the width of your sidebar */
   padding-left: 20px;
 }
-
+/*test*/
+.list-group-item.active {
+  background-color: var(--blue-500) !important;
+  color: var(--white);
+}
+.list-group-item {
+  cursor: pointer;
+}
