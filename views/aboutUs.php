@@ -28,6 +28,9 @@
     ?>
     <section class="sections" id="">
     
+    <?php 
+    include 'components/imaginary-header.html';
+    include 'components/aboutUs-header.html'?>
        
     </section>
     <?php include 'components/footer.html'?>

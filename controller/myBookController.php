@@ -14,13 +14,13 @@ if (isset($_POST['cancel_id'])) {
         if ($stmt = $conn->prepare($delete_sql)) {
             $stmt->bind_param("i", $cancel_id); // Bind the cancel_id as an integer
             if ($stmt->execute()) {
-                echo "<div class='alert alert-success'>Appointment canceled successfully.</div>";
+                echo "<script>$('#successModal').modal('show');</script>";
             } else {
-                echo "<div class='alert alert-danger'>Failed to cancel the appointment. Please try again.</div>";
+                echo"<script>$('#errorModal').modal('show');</script>";
             }
             $stmt->close();
         } else {
-            echo "<div class='alert alert-danger'>Error preparing the query.</div>";
+            echo "<script>$('#errorModal').modal('show');</script>";
         }
     }
 }
@@ -41,23 +41,24 @@ if ($stmt = $conn->prepare($sql)) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $formattedDate = (new DateTime($row['date']))->format('M d, Y');  // Format the date as "Nov 30, 2024"
+            $formattedTime = (new DateTime($row['time']))->format('g:i A'); 
             echo "<tr>
                     <td>" . htmlspecialchars($row['id']) . "</td>
                     <td>" . htmlspecialchars($row['branch']) . "</td>
-                    <td>" . htmlspecialchars($row['date']) . "</td>
-                    <td>" . htmlspecialchars($row['time']) . "</td>
+                    <td>" . $formattedDate . "</td>
+                    <td>" . $formattedTime . "</td>
                     <td>" . htmlspecialchars($row['description']) . "</td>
-                    <td>" . htmlspecialchars($row['status']) . "</td>
+                    <td class='" . strtolower($row['status']) . "'>" . htmlspecialchars($row['status']) . "</td>
                     <td>";
 
             // If the appointment status is 'Pending', show the 'Cancel' button
             if ($row['status'] == 'Pending') {
-                echo "<button type='button' class='btn btn-danger' onclick='showCancelModal(" . $row['id'] . ")'>Cancel</button>";
+                echo "<button type='button' class='btn btn-danger' onclick='showCancelModal(" . $row['id'] . ")'><i class='bi bi-trash-fill'></i></button>";
             } elseif ($row['status'] == 'Consulted') {
                 // If the appointment status is 'Consulted', show the star rating form
                 echo "<form method='POST' action='../controller/rateConsultation.php' id='ratingForm_" . $row['id'] . "'>
                         <input type='hidden' name='appointment_id' value='" . $row['id'] . "'>
-                        <label for='rating'>Rate the consultation:</label><br>
                         <div class='star-rating'>
                             <input type='radio' id='star5_" . $row['id'] . "' name='rating' value='5' " . ($row['rating'] == 5 ? 'checked' : '') . " onchange='submitRatingForm(" . $row['id'] . ")'>
                             <label for='star5_" . $row['id'] . "'>&#9733;</label>

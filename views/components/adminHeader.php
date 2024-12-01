@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link color-white fw-bold" href="contactUs.php">CONTACT US</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link color-white fw-bold" href="createTestimonials.php">MANAGE TESTIMONIALS</a>
+          </li>
         </ul>
         <div class="d-flex gap-2 align-items-center right-side-nav">
           <a class="btn book-an-appointment-btn button button-pulse" href="viewAppointments.php">

@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -29,106 +30,113 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
-    
+
     ?>
-    <div class="d-flex view-appointment-main-container">
-    <!-- Sidebar -->
-    <div class="bg-light border-end" id="sidebar-wrapper" style="width: 250px; height: 100vh;">
-    <div class="sidebar-heading text-center py-4">Appointments</div>
-    <div class="list-group list-group-flush">
-    <a href="#pendingAppointments" class="list-group-item list-group-item-action bg-light" id="pendingAppointmentsLink" data-target="#pendingAppointments">Pending Appointments</a>
-    <a href="#acceptedAppointments" class="list-group-item list-group-item-action bg-light" id="acceptedAppointmentsLink" data-target="#acceptedAppointments">Accepted Appointments</a>
-    <a href="#consultedAppointments" class="list-group-item list-group-item-action bg-light" id="consultedAppointmentsLink" data-target="#consultedAppointments">Consulted Appointments</a>
-    <a href="#rejectedAppointments" class="list-group-item list-group-item-action bg-light" id="rejectedAppointmentsLink" data-target="#rejectedAppointments">Rejected Appointments</a>
-</div>
-
-</div>
-
-    <!-- Main Content -->
-    <div class="container-fluid">
-        <?php include 'components/rejectModal.php';
+<section class="sections">
+<?php 
+    include 'components/imaginary-header.html';
+    include 'components/viewAppointment-header.html'?>
+    <div class="container">
+    <?php include 'components/rejectModal.php';
                 include 'components/modalSuccess.html';
         ?>
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs" id="appointmentTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active admin-tab" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pendingAppointments" type="button" role="tab">Pending</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link admin-tab" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#acceptedAppointments" type="button" role="tab">Accepted</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link admin-tab" id="consulted-tab" data-bs-toggle="tab" data-bs-target="#consultedAppointments" type="button" role="tab">Consulted</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link admin-tab" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejectedAppointments" type="button" role="tab">Rejected</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-4">
         
-        <section id="pendingAppointments" class="" style="height: 100vh; padding-top: 5% !important;">
-            <h2>Pending Appointments</h2>
-            <table id="viewAppointmentTable">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Branch</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php include '../controller/viewAppointmentController.php';?>
-            </tbody>
-        </table>
-        </section>
-        <section id="acceptedAppointments" class="" style="height: 100vh; padding-top: 5% !important;">
-            <h2>Accepted Appointments</h2>
-            <table id="viewAppointmentAcceptedTable">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Branch</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php include '../controller/viewAppointmentAcceptedController.php';?>
-            </tbody>
-        </table>
-        </section>
-        <section id="consultedAppointments" class="" style="height: 100vh; padding-top: 5% !important;" >
-            <h2>Consulted Appointments</h2>
-            <table id="viewAppointmentConsultedTable">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Branch</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Description</th>
-                    <th>Rate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php include '../controller/viewAppointmentConsultedController.php';?>
-            </tbody>
-        </table>
-        </section>
-        <section id="rejectedAppointments" class="" style="height: 100vh; padding-top: 5% !important;">
-            <h2>Rejected Appointments</h2>
-            <table id="viewAppointmentRejectedTable">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Branch</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php include '../controller/viewAppointmentRejectedController.php';?>
-            </tbody>
-        </table>
-        </section>
+        <div class="tab-pane fade show active" id="pendingAppointments" role="tabpanel">
+            <table id="viewAppointmentTable" class="hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include '../controller/viewAppointmentController.php'; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="acceptedAppointments" role="tabpanel">
+            <table id="viewAppointmentAcceptedTable" class="hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include '../controller/viewAppointmentAcceptedController.php'; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="consultedAppointments" role="tabpanel">
+            <table id="viewAppointmentConsultedTable" class="hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include '../controller/viewAppointmentConsultedController.php'; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="rejectedAppointments" role="tabpanel">
+            <table id="viewAppointmentRejectedTable" class="hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include '../controller/viewAppointmentRejectedController.php'; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
-
+    </section>
     <?php include 'components/footer.html'; ?>
 
     <script src="js/script.js"></script>
@@ -142,38 +150,7 @@
     <script src="js/bookAppointment.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#viewAppointmentTable').DataTable({
-  columnDefs: [{
-    "defaultContent": "-",
-    "targets": "_all"
-  }],
-  "order": [[0, 'desc']]
-});
-        $('#viewAppointmentAcceptedTable').DataTable({
-  columnDefs: [{
-    "defaultContent": "-",
-    "targets": "_all"
-  }],
-  "order": [[0, 'desc']]
-});
-        $('#viewAppointmentConsultedTable').DataTable({
-  columnDefs: [{
-    "defaultContent": "-",
-    "targets": "_all"
-  }],
-  "order": [[0, 'desc']]
-});
-        $('#viewAppointmentRejectedTable').DataTable({
-  columnDefs: [{
-    "defaultContent": "-",
-    "targets": "_all"
-  }],
-  "order": [[0, 'desc']]
-});
-      });
-    </script>
+    <script src="js/viewAppointmentTable.js"></script>
 <script>
     function submitRatingForm(appointmentId) {
         var form = document.getElementById('ratingForm_' + appointmentId);

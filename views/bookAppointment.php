@@ -1,6 +1,17 @@
 <?php 
-    session_start();
-    include '../sessions/session_detection.php';
+   session_start();
+  
+   if (!isset($_SESSION['user_id'])) {
+       header("Location: login.php");
+       exit();
+   } else {
+       if ($_SESSION['role'] === 'admin') {
+           $previousPage = $_SERVER['HTTP_REFERER'] ?? 'defaultPage.php'; 
+           header("Location: $previousPage");
+           exit();
+       }
+    
+   }
     include '../controller/appointmentController.php'; // Fixed missing semicolon
 ?>
 
@@ -31,6 +42,9 @@
     include 'components/logoutModal.html';
     ?>
     <section class="sections" id="bookAppointmentSection">
+    <?php 
+    include 'components/imaginary-header.html';
+    include 'components/aboutUs-header.html'?>
         <form class="container" action="bookAppointment.php" method="POST">
             <div class="row">
                 <h1>Book Appointment</h1>

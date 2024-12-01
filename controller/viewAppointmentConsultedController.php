@@ -10,12 +10,14 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        $formattedDate = (new DateTime($row['date']))->format('M d, Y');  // Format the date as "Nov 30, 2024"
+        $formattedTime = (new DateTime($row['time']))->format('g:i A'); 
         echo "<tr>
                 <td>" . htmlspecialchars($row['id']) . "</td>
                 <td>" . htmlspecialchars($row['username']) . "</td>
                 <td>" . htmlspecialchars($row['branch']) . "</td>
-                <td>" . htmlspecialchars($row['date']) . "</td>
-                <td>" . htmlspecialchars($row['time']) . "</td>
+                <td>" . $formattedDate . "</td>
+                <td>" . $formattedTime . "</td>
                 <td>" . htmlspecialchars($row['description']) . "</td>
                 <td>";
 
@@ -24,7 +26,7 @@ if ($result->num_rows > 0) {
             // Display filled stars based on the rating value
             for ($i = 1; $i <= 5; $i++) {
                 if ($i <= $row['rating']) {
-                    echo "<span style='color: gold;'>&#9733;</span>"; // Filled star (gold)
+                    echo "<span style='color:#1976d2; '>&#9733;</span>"; // Filled star (gold)
                 } else {
                     echo "<span>&#9733;</span>"; // Empty star
                 }
@@ -36,7 +38,7 @@ if ($result->num_rows > 0) {
         echo "</td></tr>";
     }
 } else {
-    echo "<tr><td colspan='7'>No consulted appointments available</td></tr>";
+ 
 }
 
 $conn->close();

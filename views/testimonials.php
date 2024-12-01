@@ -1,10 +1,12 @@
-<?php session_start(); ?>
+<?php session_start();
+    include '../controller/testimonialController.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials</title>
+    <title>Create Testimonials</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +28,31 @@
       }
     include 'components/logoutModal.html';
     ?>
-    <section class="sections" id="">
-    
-       
+    <section class="sections" id="testimonialSection">
+    <?php 
+    include 'components/imaginary-header.html';
+    include 'components/testimonial-header.html'?>
+    <div class="container testimonials-main-container mt-5">
+        <div class="row">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="col-12 col-md-4 mb-5">
+                    <div class="testimonial-card-v2 wow animate__fadeIn animate__animated " data-wow-delay="0.2s">
+                    <img src="../images/apostrophe.png" w/>
+                        <p class="testimonial-card-paragraph-v2">
+                            <?php echo htmlspecialchars($row['testimonial']); ?>
+                        </p>
+                        <div class="landing-testimonial-picture-container-v2">
+                            <?php if ($row['image']): ?>
+                                <img src="<?php echo htmlspecialchars($row['image']); ?>" class="testimonial-picture mb-2" alt="Picture" width ="70px" height="70px" style="border-radius: 50%;">
+                            <?php endif; ?>
+                            <p class="blue-card-p"><?php echo htmlspecialchars($row['name']); ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    </div>
+
     </section>
     <?php include 'components/footer.html'?>
     <script src="js/script.js"></script>

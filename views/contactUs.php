@@ -27,7 +27,10 @@
     include 'components/logoutModal.html';
     ?>
     <section class="sections" id="">
-    
+      
+    <?php 
+    include 'components/imaginary-header.html';
+    include 'components/contactUs-header.html'?>
        
     </section>
     <?php include 'components/footer.html'?>
