@@ -1,4 +1,16 @@
-    <?php session_start()?>
+    <?php session_start();
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    } else {
+        if ($_SESSION['role'] === 'admin') {
+            $previousPage = $_SERVER['HTTP_REFERER'] ?? 'index.php'; 
+            header("Location: $previousPage");
+            exit();
+        }
+    }
+    
+    ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -37,26 +49,27 @@
         include 'components/imaginary-header.html';
         include 'components/myBook-header.html' ?>
 
-          <div class="my-table-container container">
+          <div class="my-table-container">
           <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item" role="presentation">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-table1">All</button>
+                  <button class="nav-link admin-tab active" data-bs-toggle="tab" data-bs-target="#tab-table1">All</button>
               </li>
               <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-table5">Accepted</button>
+                  <button class="nav-link admin-tab" data-bs-toggle="tab" data-bs-target="#tab-table5">Accepted</button>
               </li>
               <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-table2">Pending</button>
+                  <button class="nav-link admin-tab" data-bs-toggle="tab" data-bs-target="#tab-table2">Pending</button>
               </li>
               <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-table3">Consulted</button>
+                  <button class="nav-link admin-tab" data-bs-toggle="tab" data-bs-target="#tab-table3">Consulted</button>
               </li>
               <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-table4">Rejected</button>
+                  <button class="nav-link admin-tab" data-bs-toggle="tab" data-bs-target="#tab-table4">Rejected</button>
               </li>
           </ul>
               <div class="tab-content">
                   <div class="tab-pane show active fade" id="tab-table1">
+                  <div class="overflow-x-table">
                       <table id="myTable" class="hover">
                           <thead class="table-head">
                               <tr>
@@ -73,8 +86,10 @@
                               <?php include '../controller/myBookController.php'; ?>
                           </tbody>
                       </table>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="tab-table5">
+                  <div class="overflow-x-table">
                   <table id="myTable5" class="hover">
                           <thead class="table-head">
                               <tr>
@@ -91,8 +106,10 @@
                               <?php include '../controller/myBookController.php'; ?>
                           </tbody>
                       </table>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="tab-table2">
+                  <div class="overflow-x-table">
                   <table id="myTable2" class="hover">
                           <thead class="table-head">
                               <tr>
@@ -109,8 +126,10 @@
                               <?php include '../controller/myBookController.php'; ?>
                           </tbody>
                       </table>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="tab-table3">
+                  <div class="overflow-x-table">
                   <table id="myTable3" class="hover">
                           <thead class="table-head">
                               <tr>
@@ -127,8 +146,10 @@
                               <?php include '../controller/myBookController.php'; ?>
                           </tbody>
                       </table>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="tab-table4">
+                  <div class="overflow-x-table">
                   <table id="myTable4" class="hover">
                           <thead class="table-head">
                               <tr>
@@ -145,6 +166,7 @@
                               <?php include '../controller/myBookController.php'; ?>
                           </tbody>
                       </table>
+                    </div>
                   </div>
               </div>
           </div>

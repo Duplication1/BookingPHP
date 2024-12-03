@@ -1,5 +1,16 @@
 <?php session_start();
   include '../controller/createTestimonialController.php';
+  if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+} else {
+    if ($_SESSION['role'] === 'user') {
+        $previousPage = $_SERVER['HTTP_REFERER'] ?? 'index.php'; 
+        header("Location: $previousPage");
+        exit();
+    }
+ 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,42 +50,61 @@
     include 'components/successfulModalTestimony.html';
     include 'components/updateTestimonialModal.html';
     ?>
-       <div class="container mt-5">
-        <form action="" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="testimonial" class="form-label">Testimonial</label>
-                <textarea class="form-control" id="testimonial" name="testimonial" rows="3" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload Picture (optional)</label>
-                <input type="file" class="form-control" id="image" name="image" accept="image/*">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>  
-    </div>
-    <div class="container mt-5">
-    <table id="testimonialsTable" class="hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Testimonial</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-              include '../controller/showTestimonialController.php';
-             ?>
-        </tbody>
-    </table>
-</div>
+     <div class="container">
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link admin-tab active" id="form-tab" data-bs-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Testimonial</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link admin-tab" id="table-tab" data-bs-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="false">View Testimonials</a>
+        </li>
+    </ul>
 
+    <!-- Tab Content -->
+    <div class="tab-content" id="myTabContent">
+        <!-- Form Tab -->
+        <div class="tab-pane fade show active" id="form" role="tabpanel" aria-labelledby="form-tab">
+            <form action="" method="POST" enctype="multipart/form-data" class="create-testimonial-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label create-testimonials-name">Name</label>
+                    <input type="text" class="form-control create-testimonials-input-name" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="testimonial" class="form-label create-testimonials-label">Testimonial</label>
+                    <textarea class="form-control  create-testimonials-textarea" id="testimonial" name="testimonial" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label create-testimonials-upload-label">Upload Picture (optional)</label>
+                    <input type="file" class="form-control create-testimonials-upload-input" id="image" name="image" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary create-testimonials-btn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Table Tab -->
+        <div class="tab-pane fade" id="table" role="tabpanel" aria-labelledby="table-tab">
+                <div class="overflow-x-table">
+            <table id="testimonialsTable" class="hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Testimonial</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                      include '../controller/showTestimonialController.php';
+                    ?>
+                </tbody>
+            </table>
+                </div>
+        </div>
+    </div>
+</div>
     </section>
     <?php include 'components/footer.html'?>
     
@@ -96,7 +126,7 @@
                 targets: '_all', // Apply to all columns
                 className: 'text-center align-middle ellipsis', // Center-align and truncate text
                 width: '150px' // Fixed width for columns
-            }
+            }   
         ],
         rowCallback: function (row, data, index) {
             var fullText = data[2]; // Assuming 3rd column has the full text
@@ -109,7 +139,8 @@
         language: {
             search: "<i class='bi bi-search'></i>", // Custom search field
        
-        }
+        },
+       
     });
 });
 

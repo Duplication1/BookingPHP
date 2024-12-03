@@ -1,5 +1,11 @@
 <?php 
-  $errors = include '../controller/loginController.php';
+session_start();
+ include '../controller/loginController.php';
+  if (isset($_SESSION['user_id'])) {
+    // Redirect to the login page
+    header("Location: dashboard.php");
+    exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

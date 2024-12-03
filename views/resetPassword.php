@@ -2,6 +2,11 @@
 // Include session start if necessary
 session_start();
 include '../controller/resetPasswordController.php';
+if (isset($_SESSION['user_id'])) {
+    // Redirect to the login page
+    header("Location: dashboard.php");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>

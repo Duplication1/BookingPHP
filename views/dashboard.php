@@ -9,6 +9,8 @@ if (isset($_SESSION['show_modal']) && $_SESSION['show_modal'] == true) {
           </script>";
     unset($_SESSION['show_modal']);
 }
+include '../sessions/session_detection.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

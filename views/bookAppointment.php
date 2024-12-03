@@ -6,7 +6,7 @@
        exit();
    } else {
        if ($_SESSION['role'] === 'admin') {
-           $previousPage = $_SERVER['HTTP_REFERER'] ?? 'defaultPage.php'; 
+           $previousPage = $_SERVER['HTTP_REFERER'] ?? 'index.php'; 
            header("Location: $previousPage");
            exit();
        }
@@ -40,47 +40,46 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/bookingSuccessModal.html';
+    include 'components/bookingFailModal.html';
     ?>
     <section class="sections" id="bookAppointmentSection">
     <?php 
     include 'components/imaginary-header.html';
     include 'components/aboutUs-header.html'?>
         <form class="container" action="bookAppointment.php" method="POST">
-            <div class="row">
-                <h1>Book Appointment</h1>
-                <p>We also accept walk-ins</p>
-            </div>
-            <div class="error-container">
-              <?php foreach ($messages as $message): ?>
-                  <div class="alert <?php echo $message['type'] === 'success' ? 'alert-success' : 'alert-danger'; ?>">
-              <?php echo htmlspecialchars($message['text']); ?>
-                  </div>
-              <?php endforeach; ?>
+            <div class="row book-appointment-title">
+                <h1 class="book-appointment-h1">Book Appointment</h1>
+                <p class="book-appointment-p">We also accept walk-ins</p>
             </div>
             <div class="row">
               <div class="col">
-                <label for="inline-calendar">Date</label>
+                <label for="inline-calendar" class="inline-date-calendar">Date</label>
                 <input id="inline-calendar" class="big-calendar" type="text" name="calendar" />
               </div>
-              <div class="col">
-                <label for="branches">Branches</label>
-                  <select id="branches" name="branches" required>
+              <div class="col appointment-right-col">
+                <label for="branches" class="book-appointment-branches">Branches</label>
+                  <select id="branches" name="branches" class="branches-input" required>
                     <option value="branch1">Branch 1</option>
                   </select>
 
-                  <label for="time">Time</label>
-                  <input id="time" type="text" name="time" required />
+                  <label for="time" class="appointment-time">Time</label>
+                  <input id="time" type="text" name="time" required class="input-time" />
         
                 <div id="availabilityStatus"></div> <!-- Add this div for visual feedback -->
 
-              <label for="description">Description (optional)</label>
-              <textarea id="description" name="description"></textarea>
-        
+              <label for="description" class="appointment-description">Description (optional)</label>
+              <textarea id="description" name="description" class="appointment-textarea"></textarea>
+              <label for="booking-overview" class="booking-overview">Booking Overview</label> 
               <div class="row">
-              <input id="booking-overview" type="checkbox" name="booking-overview" required/>
-                <label for="booking-overview">By ticking this box, you consent to the collection and processing of your personal data, and you confirm that you have read and understood our Privacy Notice.</label>
+                <div class="col-1 col-checkbox-appointment">
+                  <input id="booking-overview" type="checkbox" name="booking-overview" required class="checkbox-appointment form-check-input"/>
+                </div>
+                <div class="col-11">
+                <p class="checkbox-appointment-p">By ticking this box, you consent to the collection and processing of your personal data, and you confirm that you have read and understood our Privacy Notice.</p>
+                </div>
                </div>
-        <button type="submit" class="btn-submit">Submit</button>
+        <button type="submit" class="btn btn-primary appointment-submit">Submit</button>
     </div>
 </div>
 
@@ -98,6 +97,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/domLoaded.js"></script>
     <script src="js/bookAppointment.js"></script>
-
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php if (!empty($messages)): ?>
+            <?php foreach ($messages as $message): ?>
+                <?php if ($message['type'] === 'success'): ?>
+                    var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
+                <?php elseif ($message['type'] === 'error'): ?>
+                    var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                    errorModal.show();
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    });
+</script>
 </body>
 </html>

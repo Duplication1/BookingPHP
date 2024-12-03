@@ -1,5 +1,4 @@
 <?php
- // Start the session to maintain session data
 
 // Include database connection
 include '../model/db.php';  // Make sure this file contains the correct DB connection
@@ -25,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Optional: Validate that the date is a valid format
-    $date = DateTime::createFromFormat('Y-m-d', $date);
-    if (!$date) {
+    $dateObj = DateTime::createFromFormat('Y-m-d', $date); // Create DateTime object for easier handling
+    if (!$dateObj) {
         $messages[] = ['type' => 'error', 'text' => "Invalid date format."];
     }
 
@@ -50,19 +49,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $startTimeFormatted = $startTime->format('H:i');
         $endTimeFormatted = $endTime->format('H:i');
 
+        // Format date to 'Y-m-d' format
+        $dateFormatted = $dateObj->format('Y-m-d');
+
         // Check if the selected time conflicts with an existing appointment
         $query = "SELECT * FROM appointments 
-        WHERE date = ? 
-        AND branch = ? 
-        AND status = 'Accepted' AND (
-            (time >= ? AND time < ?) OR 
-            (DATE_ADD(time, INTERVAL 15 MINUTE) > ? AND time < ?)
-        )";
-
+                  WHERE date = ? 
+                  AND branch = ? 
+                  AND status = 'Accepted' AND (
+                      (time >= ? AND time < ?) OR 
+                      (DATE_ADD(time, INTERVAL 15 MINUTE) > ? AND time < ?)
+                  )";
 
         // Prepare the statement to prevent SQL injection
         if ($stmt = $conn->prepare($query)) {
-            $stmt->bind_param("ssssss", $date->format('Y-m-d'), $branch, $startTimeFormatted, $endTimeFormatted, $startTimeFormatted, $endTimeFormatted);
+            $stmt->bind_param("ssssss", $dateFormatted, $branch, $startTimeFormatted, $endTimeFormatted, $startTimeFormatted, $endTimeFormatted);
 
             // Execute the query
             $stmt->execute();
@@ -74,12 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Prepare the SQL query to insert the appointment
                 $insertQuery = "INSERT INTO appointments (uid, branch, date, time, description, status) 
-                VALUES (?, ?, ?, ?, ?, 'Pending')";
-
+                                VALUES (?, ?, ?, ?, ?, 'Pending')";
 
                 // Prepare the insert statement
                 if ($insertStmt = $conn->prepare($insertQuery)) {
-                    $insertStmt->bind_param("sssss", $user_id, $branch, $date->format('Y-m-d'), $startTimeFormatted, $description);
+                    $insertStmt->bind_param("sssss", $user_id, $branch, $dateFormatted, $startTimeFormatted, $description);
 
                     // Execute the statement
                     if ($insertStmt->execute()) {
@@ -106,4 +106,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->close();
 }
 ?>
-

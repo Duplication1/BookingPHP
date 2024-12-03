@@ -68,6 +68,7 @@
 }
 .footer li {
   list-style: none;
+  font-size: 1.2rem;
 }
 .footer-container {
   display: flex;
@@ -77,13 +78,7 @@
   height: 100%;
 }
 
-.footer-logo {
-  width: 200px;
-}
-.footer-logo img {
-  width: 100%;
-  height: 100%;
-}
+
 
 .footer-contact,
 .footer-menu,
@@ -198,6 +193,10 @@
 
 .logo-span{
   color: var(--white);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900 !important;
+  font-size: 1.6rem;
 }
 .color-white{
   color: var(--white) !important;
@@ -825,6 +824,8 @@ margin: -2%;
 }
 
 #bookAppointmentSection{
+  padding-bottom: 20% !important;
+  height: auto;
 }
 
 #calendar {
@@ -847,9 +848,20 @@ margin: -2%;
   width: 60% !important; 
   min-width: 70% !important;
 }
-
+@media(max-width: 991px){
+  .my-table-container{
+    width: 95% !important;
+  }
+}
 .view-appointment-main-container{
 
+}
+.h2-footer{
+  width: 500px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  margin-top: 10%;
 }
 
 .star-rating input[type="radio"] {
@@ -1122,4 +1134,146 @@ thead{
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   width: 150px !important;
+}
+.book-appointment-title{
+ margin-top: 3% !important;
+}
+
+.book-appointment-h1, .book-appointment-p{
+  text-align: center;
+}
+.book-appointment-h1{
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+
+}
+.book-appointment-p{
+  font-size: 1.2rem;
+}
+#inline-calendar{
+  display: none;
+}
+.flatpickr-calendar{
+  width: 630px !important;
+  height: 522px !important;
+  margin: 0 auto !important;
+}
+@media (max-width:990px) {
+ .flatpickr-calendar{
+  width: 475px !important;
+ } 
+}
+.flatpickr-innerContainer{
+  height: 100% !important;
+}
+
+.flatpickr-rContainer{
+  width: 100% !important;
+  height: 100% !important;
+}
+.flatpickr-days{
+  width: 90% !important;
+  height: 90% !important;
+  min-width: 100% !important;
+  justify-content: center !important;
+}
+.dayContainer{
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 90%;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+.flatpickr-day{
+  font-size: 1.5rem !important;
+  width: 250px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  display: flex !important;
+  align-items: center;
+}
+.inline-date-calendar, .book-appointment-branches, .appointment-time, .appointment-description, .booking-overview{
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+.appointment-right-col{
+ display: flex !important;
+ flex-direction: column !important;
+ gap: 5px;
+
+}
+.book-appointment-branches{
+  margin-top: 1%;
+}
+.appointment-time, .input-time, .branches-input, .appointment-description{
+  width: 100%;
+  height: 40px;
+}
+.flatpickr-calendar.noCalendar {
+  height: auto !important;
+  width: 200px !important;
+}
+.appointment-textarea{
+  width: 100%;
+  height: 130px;
+}
+
+.checkbox-appointment{
+  width: 25px !important;
+  height: 25px !important;
+}
+.col-checkbox-appointment{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 !important;
+}
+.appointment-submit{
+  width: 315px;
+  height: 60px;
+  background-color: var(--blue-500) !important;
+  font-size: 1.5rem !important;
+}
+
+.branches-input, .input-time, .appointment-textarea{
+  border-radius: 7px;
+  padding-left: 3%;
+}
+
+.create-testimonials-name, .create-testimonials-label, .create-testimonials-upload-label{
+  font-size: 1.9rem !important;
+  font-weight: 500 !important;
+}
+.create-testimonials-input-name, .create-testimonials-textarea{
+  border-radius: 7px !important;
+  padding-left: 3% !important;
+}
+.create-testimonials-upload-input{
+  border-radius: 7px !important;
+  background-color: var(--blue-50) !important;
+}
+.create-testimonial-form{
+  width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px 0 rgba(3,6,26,0.15);
+  padding: 5%;
+}
+.create-testimonials-btn{
+  width: 100%;
+  height: 60px;
+  margin-top: 5%;
+  background-color: var(--blue-500) !important;
+}
+@media (max-width: 991px) {
+  .overflow-x-table {
+    max-width: 100%;
+    margin: 0;
+    overflow-x: auto;/* Smooth scrolling on iOS */
+    width: 100%;
+    border: none; /* Removes any border */
+    scrollbar-width: thin; /* Make sure the table takes full width */
+  }
+  .dt-length{
+    margin: 0 !important;
+  }
 }

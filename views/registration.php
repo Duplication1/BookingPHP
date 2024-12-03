@@ -1,6 +1,11 @@
 
   <?php 
         include '../controller/registrationController.php';
+        if (isset($_SESSION['user_id'])) {
+          // Redirect to the login page
+          header("Location: dashboard.php");
+          exit();
+        }
   ?>
 
   <!DOCTYPE html>

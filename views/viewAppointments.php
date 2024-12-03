@@ -1,6 +1,16 @@
 <?php 
     session_start();
-    include '../sessions/session_detection.php';
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    } else {
+        if ($_SESSION['role'] === 'user') {
+            $previousPage = $_SERVER['HTTP_REFERER'] ?? 'index.php'; 
+            header("Location: $previousPage");
+            exit();
+        }
+     
+    }
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +70,7 @@
     <div class="tab-content mt-4">
         
         <div class="tab-pane fade show active" id="pendingAppointments" role="tabpanel">
+        <div class="overflow-x-table">
             <table id="viewAppointmentTable" class="hover">
                 <thead>
                     <tr>
@@ -76,9 +87,11 @@
                     <?php include '../controller/viewAppointmentController.php'; ?>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="acceptedAppointments" role="tabpanel">
+        <div class="overflow-x-table">
             <table id="viewAppointmentAcceptedTable" class="hover">
                 <thead>
                     <tr>
@@ -95,9 +108,11 @@
                     <?php include '../controller/viewAppointmentAcceptedController.php'; ?>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="consultedAppointments" role="tabpanel">
+        <div class="overflow-x-table">
             <table id="viewAppointmentConsultedTable" class="hover">
                 <thead>
                     <tr>
@@ -114,9 +129,11 @@
                     <?php include '../controller/viewAppointmentConsultedController.php'; ?>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="rejectedAppointments" role="tabpanel">
+        <div class="overflow-x-table">
             <table id="viewAppointmentRejectedTable" class="hover">
                 <thead>
                     <tr>
@@ -132,6 +149,7 @@
                     <?php include '../controller/viewAppointmentRejectedController.php'; ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 </div>
