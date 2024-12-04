@@ -38,7 +38,9 @@ if (isset($_SESSION['user_id'])) {
     include 'components/logoutModal.html';
     ?>
     <div class="dashboard-body">
-        <?php include 'components/goUp.html' ?>
+        <?php include 'components/goUp.html';
+              include 'components/chatWithUs.html';
+        ?>
         <section class="sections" id="firstSection">
         <?php include 'components/hero.html'; ?>
         </section>

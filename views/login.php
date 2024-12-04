@@ -33,6 +33,7 @@ session_start();
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/chatWithUs.html';
     ?>
     <section class="sections" id="registrationSection">
         <form action="login.php" method="post" class="container login-container">

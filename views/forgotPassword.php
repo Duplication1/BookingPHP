@@ -34,6 +34,7 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/chatWithUs.html';
     ?>
     
     <section class="sections" id="forgotPasswordSection">

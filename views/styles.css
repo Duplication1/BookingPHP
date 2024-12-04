@@ -1,0 +1,307 @@
+:root {
+    --blue-50: #e8f1fb;
+    --blue-100: #b8d5f1;
+    --blue-200: #95c0ea;
+    --blue-300: #65a3e1;
+    --blue-400: #4791db;
+    --blue-500: #1976d2;
+    --blue-600: #176bbf;
+    --blue-700: #125495;
+    --blue-800: #0e4174;
+    --blue-900: #0b3258;
+    --blue-l-50: #eaf8fe;
+    --blue-l-100: #bde8fc;
+    --blue-l-200: #9dddfb;
+    --blue-l-300: #70cef9;
+    --blue-l-400: #54c5f8;
+    --blue-l-500: #29b6f6;
+    --blue-l-600: #25a6e0;
+    --blue-l-700: #1d81af;
+    --blue-l-800: #176487;
+    --blue-l-900: #114c67;
+    --grey-50: #efefef;
+    --grey-100: #cecece;
+    --grey-200: #b6b6b6;
+    --grey-300: #959595;
+    --grey-400: #818181;
+    --grey-500: #616161;
+    --grey-600: #585858;
+    --grey-700: #454545;
+    --grey-800: #353535;
+    --grey-900: #292929;
+    --black: #030303;
+    --white: #fff;
+}
+ 
+  
+  .botbody {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    height: auto;
+    width: fit-content;
+    min-width: 35rem;
+    box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card #botheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.8rem;
+  }
+  
+  .card #botheader h1 {
+    color: var(--black);
+    font-size: 2.5rem;
+    padding: 1rem 1rem 1rem 0;
+  }
+  
+  .card #message-section::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .card #message-section {
+    height: 30rem;
+    max-height: 450px;
+    overflow-y: auto;
+    scrollbar-color: black var(--thumbBG);
+  }
+  
+  .card #message-section::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .card #message-section::-webkit-scrollbar-thumb {
+    background-color: var(--blue-50);
+  }
+  
+  .card #message-section::-webkit-scrollbar-track {
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .card #message-section #bot
+  {
+    position: relative;
+    bottom: 0;
+    min-height: 1.2rem;
+    background-color:  var(--blue-50) !important;
+    color: var(--black) !important;
+    border-radius: 0 1rem 1rem 1.2rem;
+    margin: 0.8rem 0.4rem 0rem;
+    max-width: 34vw;
+  }
+  .card #message-section #user{
+    position: relative;
+    bottom: 0;
+    min-height: 1.2rem;
+    background-color:  var(--blue-200) !important;
+    color: var(--black) !important;
+    border-radius: 0 1rem 1rem 1.2rem;
+    margin: 0.8rem 0.4rem 0rem;
+    max-width: 34vw;
+  }
+  .card #message-section #bot {
+    float: left;
+    padding-left: 1.2rem;
+  }
+  
+  .card #message-section #user {
+    border-radius: 1rem 0rem 1rem 1.2rem;
+    background-color: #fff;
+    float: right;
+    padding-right: 1.2rem;
+  }
+  #user-input{
+    padding-left: 5%;
+  }
+  .card #message-section #user #user-response {
+    color: #000000;
+  }
+  
+  .card #message-section .message {
+    clear: both;
+    line-height: 1.4rem;
+    font-size: 1rem;
+    padding: 8px;
+    position: relative;
+    margin: 8px 0;
+    max-width: 85%;
+    word-wrap: break-word;
+    z-index: 2;
+    max-width: 300px;
+  }
+ .card #message-section #user #user-response{
+  }
+  
+  .card #input-section {
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    background-color: var(--blue-50);
+    margin-top: 2%;
+    padding-top: 1.3rem;
+  }
+  
+  .card #input-section input {
+    display: flex;
+    align-items: center;
+    color: #000;
+    min-width: 0.5rem;
+    outline: none;
+    height: 2rem;
+    max-height: 2rem;
+    max-width: 600px;
+    flex: 1;
+    background-color: var(--white);
+    border: none;
+    border-radius: 1rem;
+    margin-left: 0.4rem;
+  }
+  
+  .card .send {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin-left: 1em;
+    margin-right: 0;
+    padding: 0;
+    position: relative;
+    outline: none;
+  }
+  
+  .circle:hover,
+  .circle:active {
+    opacity: 0.7;
+  }
+  
+  .card .send .circle {
+    position: relative;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card .send .circle i {
+    font-size: 1.5rem;
+    margin-left: -0.2rem;
+  }
+  
+  .circle {
+    background-color: var(--blue-500);
+    border-radius: 10px;
+    color: #fff;
+  }
+  
+  input:focus, .circle:focus, .send:focus , button:focus {
+    border: 1px solid white !important;
+    border-radius: 10px;
+    outline: none; 
+  }
+  
+  .quickbtns{
+    margin-left: 1.1rem;
+  }
+  
+  .quickmessage {
+    background-color: var(--blue-500);
+    color: #ffffff;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 0px;
+    margin-top: 3px;
+  }
+  
+  .typing-animation {
+    animation: typing 2s infinite;
+  }
+  /* typing animation */
+  @keyframes typing {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  
+  @media (max-width: 991px) {
+    .card {
+      min-width: 80vw;
+      min-height: 60vh;
+      font-size: 1.2vw;
+    }
+  
+    .quickmessage{
+      font-size: 1rem;
+    }
+  
+    .card #botheader {
+      font-size: 1.8rem;
+    }
+  
+    .card #message-section {
+      height: 50vh;
+    }
+  
+  
+    .message #user-response{
+        background-color: var(--blue-50) !important;
+    }
+  
+    #bot-response,
+    #user-response,
+    #bot-input {
+      font-size: 11px;
+    }
+  
+    .card #message-section::-webkit-scrollbar {
+      width: 2px;
+    }
+  
+    .card #message-section #bot,
+    .card #message-section #user {
+      max-width: 60vw;
+    }
+    .quickbtns {
+      max-width: 75vw;
+    }
+  }
+  
+  @media (min-width: 768px) {
+
+  
+    .quickbtns{
+      max-width: 600px;
+    }
+  
+    #bot-response,
+    #user-response,
+    #bot-input {
+      font-size: 16px;
+    }
+
+  
+    .card .send .circle {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  
+    .botbody {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  }

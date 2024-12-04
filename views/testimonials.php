@@ -21,12 +21,17 @@
 <?php 
     if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
     include 'components/userHeader.php';
+    include 'components/chatWithUs.html';
     } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     include 'components/adminHeader.php';
     } else {
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/goUp.html';
+    if (!isset($_SESSION['user_id']) || $_SESSION['role'] === 'user'){
+      include 'components/chatWithUs.html';
+    }
     ?>
     <section class="sections" id="testimonialSection">
     <?php 

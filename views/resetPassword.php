@@ -36,6 +36,7 @@ if (isset($_SESSION['user_id'])) {
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/chatWithUs.html';
     ?>
     
     <section class="sections" id="registrationSection">

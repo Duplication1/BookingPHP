@@ -42,6 +42,7 @@
     include 'components/logoutModal.html';
     include 'components/bookingSuccessModal.html';
     include 'components/bookingFailModal.html';
+    include 'components/chatWithUs.html';
     ?>
     <section class="sections" id="bookAppointmentSection">
     <?php 

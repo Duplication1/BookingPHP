@@ -34,6 +34,7 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/chatWithUs.html';
     ?>
     <section class="sections" id="verifyOTPContainer">
     <div class="container mt-5 verify-otp-container">

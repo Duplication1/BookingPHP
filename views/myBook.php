@@ -41,7 +41,8 @@
               include 'components/logoutModal.html';
               include 'components/cancelModal.html';
               include 'components/errorModal.html';
-              include 'components/myModalSuccess.html'
+              include 'components/myModalSuccess.html';
+              include 'components/chatWithUs.html';
               ?>
           <section class="sections" id="myBookSection">
         <?php 

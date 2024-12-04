@@ -36,6 +36,7 @@
     include 'components/header.php';
       }
     include 'components/logoutModal.html';
+    include 'components/chatWithUs.html';
     ?>
       <section class="sections" id="registrationSection">
           <form action="registration.php" method="post" class="registration-container container">

@@ -1277,3 +1277,455 @@ thead{
     margin: 0 !important;
   }
 }
+
+.chat-with-us-container{
+  height: 80px;
+  width: 250px;
+  background-color: var(--blue-500) !important;
+  color: var(--white);
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 30px;
+  text-decoration: none;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+.chat-with-us-container:hover{
+   opacity: 1;
+}
+#faqSection{
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 10%;
+}
+
+/* vision-to-action */
+#vision-to-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width */
+  margin: 0;
+  padding: 50px 0; /* Add vertical padding for spacing */
+  background-color: var(--white); /* Optional background color */
+}
+
+.vision-to-action-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width of the screen */
+  max-width: 1200px; /* Optional: Restrict max width for large screens */
+  padding: 0 20px; /* Add padding for better alignment on smaller screens */
+  box-sizing: border-box;
+}
+
+.vision-to-action-img-container {
+  flex: 1; /* Allows the image section to scale proportionally */
+  max-width: 50%; /* Restricts the image to half the container width */
+  margin-right: 20px; /* Add spacing between image and text */
+}
+
+.vision-to-action-img-container img {
+  width: 100%; /* Ensures the image is fully responsive */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.vision-to-action-container {
+  flex: 1; /* Allows the text section to scale proportionally */
+  max-width: 50%; /* Restricts the text section to half the container width */
+  padding: 0 20px; /* Add padding for alignment */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.vision-to-action-h4 {
+  color: var(--blue-500);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.vision-to-action-h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  line-height: 1.4; /* Better readability */
+}
+
+.vision-to-action-paragraph {
+  font-size: 18px; /* Adjusted font size for readability */
+  line-height: 1.6; /* Adds spacing between lines */
+  margin: 0;
+}
+/* caring-for-eye */
+#caring-for-eye {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width */
+  padding: 60px 20px; /* Add padding for spacing */
+  background-color: var(--grey-900); /* Dark background for contrast */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.caring-for-eye-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Limit max width for better layout */
+  margin: 0 auto; /* Center container on the page */
+  padding: 0 20px; /* Add horizontal padding */
+  box-sizing: border-box;
+}
+
+.caring-for-eye-container {
+  flex: 1; /* Equal distribution of space for text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white); /* White text for contrast */
+  padding: 20px; /* Add padding around text */
+  box-sizing: border-box;
+}
+
+.caring-for-eye-h1 {
+  font-size: 36px; /* Large heading for emphasis */
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+.caring-for-eye-paragraph {
+  font-size: 18px; /* Slightly larger font size for readability */
+  line-height: 1.6; /* Improved line spacing */
+  margin: 0; /* Remove extra margins */
+}
+
+.caring-for-eye-img-container {
+  flex: 1; /* Equal distribution of space for image */
+  max-width: 50%; /* Limit image section width to half */
+  padding: 20px; /* Add padding for spacing */
+  box-sizing: border-box;
+}
+
+.caring-for-eye-img-container img {
+  width: 100%; /* Responsive image width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/*our-mission*/
+/*our-mission*/
+#our-mission {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width */
+  margin: 0; /* Remove default margins */
+  padding: 50px; /* Adjust padding to provide breathing room */
+  background-color: var(--blue-50);
+  box-sizing: border-box; /* Ensure padding doesn’t affect overall dimensions */
+}
+
+.our-mission-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Optional: Limit content width for larger screens */
+  margin: 0 auto; /* Center the content horizontally */
+}
+.our-mission-img-container {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Horizontally center the image */
+  align-items: center; /* Vertically center the image */
+  margin: 0; /* Remove default margins */
+  max-width: 50%; /* Restrict image container to half the width */
+  height: auto; /* Ensure the container adapts */
+  flex-shrink: 0; /* Prevent shrinking */
+  height: 100%;
+}
+
+.our-mission-img-container img {
+  max-width: 100%; /* Ensure the image fits within the container */
+  max-height: 100%; /* Ensure it respects the container's dimensions */
+  object-fit: contain; /* Properly scale the image if dimensions vary */
+}
+
+.our-mission-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%; /* Balance space distribution */
+  padding: 0 20px; /* Add slight padding to improve alignment */
+  box-sizing: border-box;
+}
+
+.our-mission-h1 {
+  font-size: 36px; /* Adjust heading size */
+  margin-bottom: 20px; /* Tighten spacing below the header */
+  color: var(--black); /* Match the section's theme */
+}
+
+.our-mission-paragraph {
+  font-size: 20px;
+  line-height: 1.5; /* Improve readability */
+  margin-bottom: 30px; /* Add spacing below the paragraph */
+}
+
+.our-mission-patients,
+.our-mission-team,
+.our-mission-community {
+  margin-bottom: 30px; /* Space between sections */
+}
+
+.our-mission-patients-h1,
+.our-mission-team-h1,
+.our-mission-community-h1 {
+  font-size: 24px; /* Distinguish subheadings */
+  margin-bottom: 10px;
+  color: var(--black); /* Match the section's theme */
+}
+
+.our-mission-patients-list li,
+.our-mission-team-list li,
+.our-mission-community-list li {
+  font-size: 18px; /* Adjust list item size for consistency */
+  margin-bottom: 10px; /* Space between list items */
+  line-height: 1.4; /* Improve readability */
+}
+
+/* our-vision */
+#our-vision {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 50px 0;
+  padding: 100px 50px;
+}
+
+.our-vision-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.our-vision-img-container {
+  display: flex; /* Allows for alignment of multiple images */
+  flex-wrap: wrap; /* Handles images on smaller screens */
+  justify-content: center; /* Center the images */
+  gap: 20px; /* Adds spacing between images */
+  margin-top: 30px; /* Adds spacing between text and images */
+}
+
+.our-vision-img-container img {
+  max-width: 100%;
+  height: auto;
+  flex: 1 1 calc(40% - 20px); /* Responsive image sizing */
+  object-fit: contain; /* Ensure the image keeps its aspect ratio */
+}
+
+.our-vision-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.our-vision-h1 {
+  font-size: 32px; /* Slightly larger for better hierarchy */
+  color: var(--blue-500);
+  margin-bottom: 15px;
+}
+
+.our-vision-paragraph {
+  font-size: 22px; /* Reduced for better readability */
+  color: var(--black);
+  margin-bottom: 25px;
+  max-width: 800px; /* Restrict paragraph width for readability */
+}
+/* branch-info */ /* branch-info */
+.branch-info-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 60px 20px; /* Increase padding for larger spaces */
+  background-color: var(--grey-900); /* Dark background color */
+  box-sizing: border-box; /* Ensures padding is included in total width */
+}
+
+.branch-info-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Maximum width to avoid stretching on large screens */
+  gap: 60px; /* Increase gap between columns for better spacing */
+}
+
+.branch-info-container {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--grey-900);
+  gap: 30px; /* Increase gap for more spacious layout */
+  width: 70%; /* Left column takes up 50% of space */
+}
+
+.branch-info-details {
+  display: flex;
+  gap: 30px; /* Larger gap for better spacing between image and text */
+  align-items: flex-start;
+}
+
+.branch-info-img {
+  height: 250px; /* Increased height for larger images */
+  width: 350px; /* Increased width for images */
+  border-radius: 8px;
+  object-fit: cover; /* Ensure the image fits inside the container */
+}
+
+.branch-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap for better spacing between text elements */
+}
+
+.branch-info-h1 {
+  font-size: 48px; /* Increased font size for the header */
+  color: var(--white);
+  margin-bottom: 30px; /* Increased margin for more space around the header */
+}
+
+.branch-info-h4 {
+  font-size: 30px; /* Increased font size for subheader */
+  color: var(--white);
+  margin-bottom: 15px; /* Larger margin for spacing */
+}
+
+.branch-info-text-data {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap for better spacing between icon and text */
+}
+
+.branch-info-paragraph {
+  font-size: 16px; /* Increased font size for paragraph text */
+  color: var(--white);
+}
+
+.material-symbols-outlined {
+  font-size: 22px; /* Larger icon size */
+  color: var(--white);
+}
+
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px; /* Increased gap for better social media section spacing */
+  background-color: var(--white);
+  padding: 25px; /* Larger padding for more breathing space */
+  border-radius: 8px;
+}
+
+.social-media p {
+  font-size: 18px; /* Increased font size */
+  color: var(--grey-900);
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 30px; /* Increased gap between social media icons */
+}
+
+.social-media-icons a {
+  font-size: 24px; /* Increased icon size */
+  color: var(--grey-900);
+  text-decoration: none;
+}
+
+.google-map {
+  width: 50%; /* Right column takes up 50% of space */
+  height: 400px; /* Increased height for Google Map section */
+  background-color: var(--grey-900); /* Placeholder for the map */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: bold; /* Make the placeholder text bolder */
+}
+
+/* clinic-hours */
+/* clinic-hours */
+.clinic-hours-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  height: 50vh;
+}
+
+.clinic-hours {
+  text-align: center;
+  max-width: 1200px; /* Increased width to take more space */
+  width: 100%;
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 8px;
+}
+
+.clinic-hours h1 {
+  font-size: 36px; /* Larger title for better impact */
+  margin-bottom: 30px; /* Increased margin for better spacing */
+  font-weight: bold;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Still grid for equal space */
+  gap: 30px; /* Increased gap between columns */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.day {
+  text-align: center;
+  padding: 20px; /* More padding to increase the size of each day block */
+  background-color: var(--white);
+  border-radius: 12px; /* More rounded corners for a smoother look */
+}
+
+.day-name {
+  display: block;
+  color: var(--blue-500);
+  font-weight: bold;
+  font-size: 20px; /* Increased size of day names */
+  margin-bottom: 10px;
+}
+
+.time {
+  font-size: 18px; /* Increased font size for time */
+  color: var(--grey-900);
+}

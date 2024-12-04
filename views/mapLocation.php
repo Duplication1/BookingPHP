@@ -21,6 +21,7 @@
 <?php 
     if (isset($_SESSION['role']) && $_SESSION['role'] === 'user') {
     include 'components/userHeader.php';
+    include 'components/chatWithUs.html';
     } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     include 'components/adminHeader.php';
     } else {
