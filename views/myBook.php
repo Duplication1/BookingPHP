@@ -1,16 +1,16 @@
-    <?php session_start();
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
-        exit();
-    } else {
-        if ($_SESSION['role'] === 'admin') {
-            $previousPage = $_SERVER['HTTP_REFERER'] ?? 'index.php'; 
-            header("Location: $previousPage");
-            exit();
-        }
-    }
-    
-    ?>
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if ($_SESSION['role'] !== 'user') {
+    header("Location: index.php");
+    exit();
+}
+?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -198,6 +198,30 @@
         var form = document.getElementById('ratingForm_' + appointmentId);
         form.submit();
     }
+</script>
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve the active tab from localStorage
+        const savedTab = localStorage.getItem("activeTab");
+        if (savedTab) {
+            const activeTab = document.querySelector(`button[data-bs-target="${savedTab}"]`);
+            if (activeTab) {
+                const tab = new bootstrap.Tab(activeTab);
+                tab.show();
+            }
+        }
+
+        // Save the active tab to localStorage when a tab is clicked
+        const tabs = document.querySelectorAll('button[data-bs-toggle="tab"]');
+        tabs.forEach(tab => {
+            tab.addEventListener("shown.bs.tab", function (event) {
+                const target = event.target.getAttribute("data-bs-target");
+                if (target) {
+                    localStorage.setItem("activeTab", target); // Save the active tab identifier
+                }
+            });
+        });
+    });
 </script>
 </body> 
 </html>

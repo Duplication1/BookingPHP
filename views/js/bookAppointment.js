@@ -50,7 +50,7 @@
     flatpickr("#time", {
         enableTime: true,  // Enable time selection
         noCalendar: true,  // Disable the calendar part (only time selection)
-        dateFormat: "h:i K", // Set the time format (24-hour format)
+        dateFormat: "H:i", // Set the time format (12-hour format)
         minTime: "08:00",  // Minimum allowed time
         maxTime: "18:30",  // Maximum allowed time
         minuteIncrement: 15,  // Allow 15-minute intervals

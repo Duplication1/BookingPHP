@@ -48,22 +48,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Show modal with success/failure message
                 const statusMessage = document.getElementById("statusMessage");
                 const statusModal = new bootstrap.Modal(document.getElementById("statusModal"));
-
                 if (data.success) {
                     statusMessage.textContent = "Appointment " + status + " successfully!";
-                    statusMessage.style.color = "green";
                 } else {
                     statusMessage.textContent = "Error updating appointment status.";
-                    statusMessage.style.color = "red";
                 }
 
                 // Show the modal
                 statusModal.show();
+                
+                // Hide the success message after 2 seconds
+                setTimeout(function () {
+                    statusMessage.textContent = "";  // Clear the message
+                    statusModal.hide(); // Hide the modal
+                }, 2000); // 2 seconds delay before hiding the message/modal
 
-                // Wait for the modal to close before reloading the page
+                // Optionally, reload after modal closes
                 const modalElement = document.getElementById("statusModal");
                 modalElement.addEventListener('hidden.bs.modal', function () {
-                    location.reload();  // Reload after the modal is closed
+                    location.reload();  // Reload the page after the modal is closed
                 });
             })
             .catch((error) => console.error("Error:", error));

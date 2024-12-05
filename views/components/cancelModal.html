@@ -3,17 +3,19 @@
   <div class="modal-dialog modal-dialog-centered"> <!-- Center modal vertically -->
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="cancelModalLabel">Cancel Appointment</h5>
+            <div class="modal-header-img-container">
+                <img src="../images/alert-img.png" alt="alert" width="100px" height="100px"/>
+                </div>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-center">
               Are you sure you want to cancel this appointment?
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <form id="cancelForm" method="POST" action="">
                   <input type="hidden" name="cancel_id" id="cancel_id">
-                  <button type="submit" class="btn btn-danger">Confirm Cancel</button>
+                  <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancel <i class="bi bi-trash"></i></button>
               </form>
           </div>
       </div>

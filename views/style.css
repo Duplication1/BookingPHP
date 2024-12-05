@@ -1741,3 +1741,73 @@ thead{
 .map-col{
   height: 625px;
 }
+
+#viewAppointmentSection{
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 10%;
+}
+
+.modal-header-img-container{
+  position: absolute;
+  top: -110%;
+  left: 40%;
+}
+.modal-header{
+  position: relative;
+  border: 0 !important;
+}
+
+.got-it-modal-btn{
+  width: 100px !important;
+  background-color: var(--blue-500) !important; 
+}
+
+.edit-label-testimonials{
+  font-size: 1.9rem !important;
+  font-weight: 500 !important;
+}
+.edit-input-testimonials{
+  width: 100% !important;
+  height: 40px !important;
+  border-radius: 7px !important;
+}
+.see-my-book{
+  background-color: var(--blue-500) !important;
+  border: 2px solid var(--black) !important;
+}
+.btn-secondary{
+  border: 2px solid var(--black) !important;
+}
+.mybook-close-btn{
+  border: 0 !important;
+}
+.save-btn{
+  border: 2px solid var(--black) !important;
+}
+
+@media(max-width: 991px){
+  .vision-to-action-img-container{
+    display: none;
+  }
+  .vision-to-action-container{
+    width: 100% !important;
+    min-width: 100% !important;
+    text-align: center;
+  }
+  .vision-to-action-main-container{
+    margin:0 5% 0 5%;
+  }
+  .caring-for-eye-img-container{
+    display: none;
+  }
+  .caring-for-eye-container{
+    text-align: center;
+  }
+  .our-mission-img-container{
+    display: none;
+  }
+  .our-mission-container{
+    min-width: 100%;
+  }
+}

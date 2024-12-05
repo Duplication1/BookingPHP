@@ -146,7 +146,28 @@
 
     </script>
     <script src="js/testimonialEditAndDelete.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Check for a hash in the URL
+    const hash = window.location.hash;
+    if (hash) {
+        const tabElement = document.querySelector(`a[href="${hash}"]`);
+        if (tabElement) {
+            tabElement.click(); // Activate the tab based on the hash
+        }
+    }
 
+    // Update the hash when a tab is changed
+    const tabs = document.querySelectorAll('#myTab a[data-bs-toggle="tab"]');
+    tabs.forEach(tab => {
+        tab.addEventListener('shown.bs.tab', function (event) {
+            const href = event.target.getAttribute('href');
+            history.replaceState(null, null, href); // Update the URL hash without reloading
+        });
+    });
+});
+
+</script>
 
 </body>
 </html>

@@ -42,7 +42,7 @@
     include 'components/logoutModal.html';
 
     ?>
-<section class="sections">
+<section class="sections" id="viewAppointmentSection">
 <?php 
     include 'components/imaginary-header.html';
     include 'components/viewAppointment-header.html'?>
@@ -53,16 +53,16 @@
     <!-- Tab Navigation -->
     <ul class="nav nav-tabs" id="appointmentTabs" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active admin-tab" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pendingAppointments" type="button" role="tab">Pending</button>
+            <button class="nav-link active admin-tab" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pendingAppointments" href="#pending" type="button" role="tab">Pending</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link admin-tab" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#acceptedAppointments" type="button" role="tab">Accepted</button>
+            <button class="nav-link admin-tab" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#acceptedAppointments"  href="#accepted" type="button" role="tab">Accepted</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link admin-tab" id="consulted-tab" data-bs-toggle="tab" data-bs-target="#consultedAppointments" type="button" role="tab">Consulted</button>
+            <button class="nav-link admin-tab" id="consulted-tab" data-bs-toggle="tab" data-bs-target="#consultedAppointments" href="#consulted" type="button" role="tab">Consulted</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link admin-tab" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejectedAppointments" type="button" role="tab">Rejected</button>
+            <button class="nav-link admin-tab" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejectedAppointments"  href="#rejected" type="button" role="tab">Rejected</button>
         </li>
     </ul>
 
@@ -177,6 +177,29 @@
 </script>
     <script src="js/modalRejection.js"></script>
     <script src="js/viewAppointment.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Check the URL hash
+    const hash = window.location.hash;
+    if (hash) {
+        const tabElement = document.querySelector(`button[href="${hash}"]`);
+        if (tabElement) {
+            tabElement.click();
+        }
+    }
 
+    // Add event listener to update the hash on tab change
+    const tabs = document.querySelectorAll('#appointmentTabs button[data-bs-toggle="tab"]');
+    tabs.forEach(tab => {
+        tab.addEventListener('shown.bs.tab', function (event) {
+            const target = event.target.getAttribute('href');
+            if (target) {
+                history.replaceState(null, null, target);
+            }
+        });
+    });
+});
+
+</script>
 </body>
 </html>

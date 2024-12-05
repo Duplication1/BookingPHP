@@ -81,7 +81,7 @@ if (isset($_POST["submit"])) {
             $mail->Port = 587; // Port for STARTTLS (465 for SSL)
 
             // Recipients
-            $mail->setFrom('gamot.kim.fernandez@gmail.com', 'Your Website Name'); // Sender email and name
+            $mail->setFrom('gamot.kim.fernandez@gmail.com', 'Wilerich Optical Clinic'); // Sender email and name
             $mail->addAddress($email, "$FirstName $LastName"); // Recipient email and name
 
             // Email content
