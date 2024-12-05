@@ -61,7 +61,7 @@
               <div class="col appointment-right-col">
                 <label for="branches" class="book-appointment-branches">Branches</label>
                   <select id="branches" name="branches" class="branches-input" required>
-                    <option value="branch1">Branch 1</option>
+                    <option value="82-B Visayas Ave, Tandang Sora, Quezon City, Metro Manila, Philippines">82-B Visayas Ave, Tandang Sora, Quezon City, Metro Manila, Philippines</option>
                   </select>
 
                   <label for="time" class="appointment-time">Time</label>
