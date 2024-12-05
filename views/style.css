@@ -103,7 +103,17 @@
 .footer-legal p {
   font-weight: 600;
 }
-
+.footer-h1{
+  font-size: 1.5rem !important;
+}
+@media(max-width: 991px){
+.list-unstyled{
+  margin-top: 5% !important;
+}
+.footer-col{
+  margin-top: 15% !important;
+}
+}
 /*header*/
 .button {
   position: relative;
@@ -1561,9 +1571,6 @@ thead{
 }
 /* branch-info */ /* branch-info */
 .branch-info-main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   padding: 60px 20px; /* Increase padding for larger spaces */
   background-color: var(--grey-900); /* Dark background color */
@@ -1571,21 +1578,11 @@ thead{
 }
 
 .branch-info-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%; /* Full width */
-  max-width: 1200px; /* Maximum width to avoid stretching on large screens */
-  gap: 60px; /* Increase gap between columns for better spacing */
+/* Increase gap between columns for better spacing */
 }
 
 .branch-info-container {
-  display: flex;
-  flex-direction: row;
-  background-color: var(--grey-900);
-  gap: 30px; /* Increase gap for more spacious layout */
-  width: 70%; /* Left column takes up 50% of space */
+ /* Left column takes up 50% of space */
 }
 
 .branch-info-details {
@@ -1610,7 +1607,8 @@ thead{
 .branch-info-h1 {
   font-size: 48px; /* Increased font size for the header */
   color: var(--white);
-  margin-bottom: 30px; /* Increased margin for more space around the header */
+  margin-bottom: 30px;
+  width: 100% !important; /* Increased margin for more space around the header */
 }
 
 .branch-info-h4 {
@@ -1728,4 +1726,18 @@ thead{
 .time {
   font-size: 18px; /* Increased font size for time */
   color: var(--grey-900);
+  font-weight: 700;
+}
+
+#map {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.container-info{
+  height: 100%;
+}
+
+.map-col{
+  height: 625px;
 }

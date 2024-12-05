@@ -53,5 +53,26 @@ include 'components/contactUs-header.html' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/domLoaded.js"></script>
     <script src="js/links.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v6.8/mapsJavaScriptAPI.js"></script>
+    <script>
+    function initMap() {
+        const clinicLocation = { lat: 14.6748553, lng: 121.0433501 };
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: clinicLocation,
+          zoom: 18,
+          mapTypeId: "satellite",
+        });
+
+        // Add a marker at the clinic location
+        new google.maps.Marker({
+          position: clinicLocation,
+          map: map,
+          title: "Wilerich Optical Clinic",
+        });
+      }
+      
+window.initMap = initMap;
+    </script>
 </body>
 </html>
