@@ -324,6 +324,9 @@ a:hover .icon{
 .navbar .dropdown-toggle::after{
   color: white;
 }
+.navbar{
+  min-width: 530px;
+}
 .nav-link{
   letter-spacing: 3px;
 }

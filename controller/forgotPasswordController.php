@@ -49,14 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com'; // SMTP server (e.g., Gmail)
                 $mail->SMTPAuth = true;
-                $mail->Username = 'gamot.kim.fernandez@gmail.com'; // Your SMTP username (Gmail address)
-                $mail->Password = 'hqxs cqod evkz qmda'; // Your SMTP password (App Password for Gmail)
+                $mail->Username = '@gmail.com'; // Your SMTP username (Gmail address)
+                $mail->Password = ''; // Your SMTP password (App Password for Gmail)
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Encryption (STARTTLS)
                 $mail->Port = 587; // Port for STARTTLS (465 for SSL)
 
 
                 // Sender and recipient
-                $mail->setFrom('gamot.kim.fernandez@gmail.com', 'Your Website');
+                $mail->setFrom('@gmail.com', 'Your Website');
                 $mail->addAddress($email);
 
                 // Content
